@@ -107,11 +107,16 @@ function App() {
 
   // Sync rooms from Supabase into siteData to keep AdminEditModal updated
   useEffect(() => {
-    const fetchRooms = async () => {
+    const fetchData = async () => {
       try {
-        const { data, error } = await supabase.from('room').select('*');
-        if (error) throw error;
-        if (data) {
+        const [roomsRes, settingsRes] = await Promise.all([
+          supabase.from('room').select('*'),
+          supabase.from('site_settings').select('data').eq('id', 1).single()
+        ]);
+        
+        if (roomsRes.error) throw roomsRes.error;
+        
+        if (roomsRes.data) {
           const parseArray = (val: any) => Array.isArray(val) ? val : (typeof val === 'string' ? (val.startsWith('[') ? JSON.parse(val) : val.split(',')) : []);
           const parseImageUrl = (val: any) => {
             if (typeof val === 'string' && val.startsWith('{')) {
@@ -124,6 +129,7 @@ function App() {
           };
 
           setSiteData(prev => {
+            const data = roomsRes.data;
             const daily = data.filter(r => r.room_type === 'daily').map(r => {
               const existingLocal = prev.dailyRooms?.find((dr: any) => dr.key === r.id);
               const imgData = parseImageUrl(r.image_url);
@@ -157,17 +163,18 @@ function App() {
               };
             }).sort((a, b) => parseInt((a.price || '0').toString().replace(/,/g, '')) - parseInt((b.price || '0').toString().replace(/,/g, '')));
 
-            const newData = { ...prev, dailyRooms: daily, monthlyRooms: monthly };
+            const settings = settingsRes.data?.data || {};
+            const newData = { ...prev, ...settings, dailyRooms: daily, monthlyRooms: monthly };
             // Save merged data back to localStorage to persist images reliably
             try { localStorage.setItem('ATS_ADMIN_SITE_DATA', JSON.stringify(newData)); } catch(e){}
             return newData;
           });
         }
       } catch (err) {
-        console.error('Error fetching rooms for admin sync:', err);
+        console.error('Error fetching admin sync:', err);
       }
     };
-    fetchRooms();
+    fetchData();
   }, [refreshTrigger]);
 
   // Track active section on scroll using Intersection Observer
@@ -233,9 +240,17 @@ function App() {
     setIsEditModalOpen(true);
   };
 
-  const handleSaveSiteData = (newData: CustomSiteData, message?: string) => {
+  const handleSaveSiteData = async (newData: CustomSiteData, message?: string) => {
     saveSiteData(newData);
     setSiteData(newData);
+    
+    try {
+        const { dailyRooms, monthlyRooms, ...settingsToSave } = newData;
+        await supabase.from('site_settings').update({ data: settingsToSave }).eq('id', 1);
+    } catch (e) {
+        console.error('Failed to save site settings to Supabase', e);
+    }
+
     setRefreshTrigger(prev => prev + 1); // Refetch from DB to sync UI if DB changed
     showToast(message || 'บันทึกข้อมูลเรียบร้อยแล้ว!');
   };
