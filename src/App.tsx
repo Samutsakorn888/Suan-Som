@@ -246,7 +246,11 @@ function App() {
     
     try {
         const { dailyRooms, monthlyRooms, ...settingsToSave } = newData;
-        await supabase.from('site_settings').update({ data: settingsToSave }).eq('id', 1);
+        const { error } = await supabase.from('site_settings').update({ data: settingsToSave }).eq('id', 1);
+        if (error) {
+            console.error('Supabase update failed:', error);
+            showToast('บันทึกสำเร็จ (แต่มีปัญหาการอัพเดตฐานข้อมูล)');
+        }
     } catch (e) {
         console.error('Failed to save site settings to Supabase', e);
     }
