@@ -9,7 +9,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({ onLineClick })
     <div className="floating-actions">
       {/* Phone Call Button */}
       <a
-        href="tel:0945095963"
+        href="tel:0654647459"
         className="floating-btn floating-btn-phone"
         title="โทรออก 065-464-7459"
       >

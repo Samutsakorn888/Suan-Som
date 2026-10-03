@@ -209,7 +209,7 @@ export const Hero: React.FC<HeroProps> = ({
                                 <button className="btn-hotel-primary" onClick={() => handleScrollToRooms(activeTab)}>
                                     {activeTab === 'daily' ? (t.heroSelectDaily || ' เลือกดูห้องพักรายวัน') : (t.heroSelectMonthly || 'เลือกดูห้องพักรายเดือน')}
                                 </button>
-                                <a href="tel:0945095963" className="btn-hotel-secondary">
+                                <a href="tel:0654647459" className="btn-hotel-secondary">
                                     {t.heroCallQuick || 'โทรจองด่วน'}
                                 </a>
                             </div>
