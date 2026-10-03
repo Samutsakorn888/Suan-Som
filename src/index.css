@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary-color: #004088;
-  --primary-hover: #002d62;
-  --primary-light: #e6f0fa;
-  --primary-border: #b3d1ff;
+  --primary-color: #c56024;
+  --primary-hover: #a34918;
+  --primary-light: #fbece3;
+  --primary-border: #e8bc9f;
   --bg-color: #ffffff;
   --bg-offset: #f7fafc;
   --text-color: #333333;
@@ -223,7 +223,7 @@ button {
 }
 
 .navbar-logo span {
-  background: linear-gradient(135deg, var(--primary-color), #0077ff);
+  background: linear-gradient(135deg, var(--primary-color), #e06b29);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: nowrap;
@@ -274,7 +274,7 @@ button {
 }
 
 .navbar-link:hover {
-  color: #0056b3;
+  color: #a34918;
   background-color: #eff6ff;
   border-color: #3b82f6;
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
@@ -282,10 +282,10 @@ button {
 }
 
 .navbar-link.active {
-  color: #004088;
+  color: #c56024;
   font-weight: 800;
-  background-color: #e0f2fe;
-  border: 2.5px solid #004088;
+  background-color: #ffdec9;
+  border: 2.5px solid #c56024;
   box-shadow: 0 4px 14px rgba(0, 64, 136, 0.25);
   transform: translateY(-1px);
 }
@@ -302,7 +302,7 @@ button {
   gap: 6px;
   padding: 8px 14px;
   border-radius: 12px;
-  background-color: #f0f9ff;
+  background-color: #fff3ed;
   border: 2px solid var(--primary-color);
   font-size: 0.95rem;
   font-weight: 800;
@@ -874,12 +874,12 @@ button {
 }
 
 .room-price-row {
-  margin-top: auto;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   border-top: 1px solid #edf2f7;
   padding-top: 20px;
+  margin-top: 16px;
 }
 
 .room-price-val {
@@ -897,7 +897,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 20px;
+  margin-top: auto;
 }
 
 .room-actions .btn {
@@ -995,7 +995,7 @@ button {
   font-size: 0.95rem;
   font-weight: 700;
   border-radius: 12px;
-  background: linear-gradient(135deg, #004088 0%, #0056b3 100%);
+  background: linear-gradient(135deg, #c56024 0%, #a34918 100%);
   color: #ffffff;
   border: none;
   box-shadow: 0 4px 14px rgba(0, 64, 136, 0.25);
@@ -2363,7 +2363,7 @@ button {
 .btn-hotel-primary {
   flex: 2;
   padding: 14px 24px;
-  background: linear-gradient(135deg, var(--primary-color), #0056b3);
+  background: linear-gradient(135deg, var(--primary-color), #a34918);
   color: #ffffff;
   font-weight: 700;
   font-size: 1.05rem;
@@ -3013,7 +3013,7 @@ button {
 
 .booking-receipt-card {
   background: #ffffff;
-  border: 2px solid #0284c7;
+  border: 2px solid #c56024;
   border-radius: 14px;
   padding: 16px 18px;
   box-shadow: 0 4px 16px rgba(2, 132, 199, 0.08);
@@ -3157,8 +3157,8 @@ button {
 }
 
 .counter-input-box.compact.duration-box {
-  border-color: #0284c7;
-  background-color: #f0f9ff;
+  border-color: #c56024;
+  background-color: #fff3ed;
 }
 
 .counter-input-box.compact .counter-btn {
@@ -3176,7 +3176,7 @@ button {
 }
 
 .counter-val-display.highlight {
-  color: #0284c7;
+  color: #c56024;
 }
 
 .btn-remove-room {
@@ -3450,7 +3450,7 @@ button {
 }
 
 .calc-val-badge {
-  background: #e6f0fa;
+  background: #fbece3;
   color: var(--primary-color);
   font-weight: 700;
   padding: 3px 10px;
@@ -3516,7 +3516,7 @@ button {
 }
 
 .calculator-results {
-  background: #002d62;
+  background: #a34918;
   color: #ffffff;
   border-radius: 16px;
   padding: 28px;
@@ -3562,7 +3562,7 @@ button {
 
 .total-label {
   font-size: 0.95rem;
-  color: #e6f0fa;
+  color: #fbece3;
 }
 
 .total-amount {
@@ -3728,7 +3728,7 @@ button {
 .bank-name {
   font-size: 1.15rem;
   font-weight: 700;
-  color: #004088;
+  color: #c56024;
 }
 
 .bank-note {
@@ -3738,22 +3738,23 @@ button {
 
 .account-details-box {
   background: #f0f7ff;
-  border: 1.5px solid #b3d1ff;
+  border: 1.5px solid #e8bc9f;
   border-radius: 14px;
   padding: 18px;
 }
 
 .acc-num-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 16px;
   margin: 8px 0;
 }
 
 .acc-num {
   font-size: 1.5rem;
   letter-spacing: 1px;
-  color: #004088;
+  color: #c56024;
 }
 
 .btn-copy-acc {
@@ -3781,11 +3782,16 @@ button {
   color: #854d0e;
 }
 
+.slip-steps {
+  text-align: left;
+}
+
 .slip-steps ol {
   padding-left: 20px;
   margin-top: 8px;
   font-size: 0.9rem;
   line-height: 1.6;
+  text-align: left;
 }
 
 /* ==========================================================================
@@ -3828,7 +3834,7 @@ button {
 
 .nearby-badge {
   background: #ebf8ff;
-  color: #2b6cb0;
+  color: #c56024;
   font-weight: bold;
   font-size: 0.8rem;
   padding: 4px 10px;
@@ -3877,7 +3883,7 @@ button {
   bottom: 28px;
   right: 28px;
   z-index: 999;
-  background: linear-gradient(135deg, #004088 0%, #0066cc 100%);
+  background: linear-gradient(135deg, #c56024 0%, #0066cc 100%);
   color: #ffffff;
   padding: 12px 20px;
   border-radius: 50px;
@@ -3927,7 +3933,7 @@ button {
 }
 
 .chatbot-header {
-  background: #004088;
+  background: #c56024;
   color: #ffffff;
   padding: 16px;
   display: flex;
@@ -4022,7 +4028,7 @@ button {
 }
 
 .chat-bubble.user {
-  background: #004088;
+  background: #c56024;
   color: #ffffff;
   border-top-right-radius: 4px;
 }
@@ -4040,8 +4046,8 @@ button {
 
 .chat-action-btn {
   background: #f0f7ff;
-  color: #004088;
-  border: 1px solid #b3d1ff;
+  color: #c56024;
+  border: 1px solid #e8bc9f;
   padding: 8px 12px;
   border-radius: 8px;
   font-size: 0.82rem;
@@ -4051,7 +4057,7 @@ button {
 }
 
 .chat-action-btn:hover {
-  background: #004088;
+  background: #c56024;
   color: #ffffff;
 }
 
@@ -4080,11 +4086,11 @@ button {
 }
 
 .chatbot-input:focus {
-  border-color: #004088;
+  border-color: #c56024;
 }
 
 .chatbot-send-btn {
-  background: #004088;
+  background: #c56024;
   color: #ffffff;
   padding: 8px 16px;
   border-radius: 20px;
@@ -4251,7 +4257,7 @@ button {
 .admin-bar-btn.rooms-btn { border-color: #f59e0b; color: #fef3c7; }
 .admin-bar-btn.rules-btn { border-color: #a78bfa; color: #edd8fe; }
 .admin-bar-btn.settings-btn { border-color: #34d399; color: #d1fae5; }
-.admin-bar-btn.logs-btn { border-color: #38bdf8; background: #0284c7; color: #ffffff; }
+.admin-bar-btn.logs-btn { border-color: #f38944; background: #c56024; color: #ffffff; }
 .admin-bar-btn.reset-btn { border-color: #ef4444; color: #fca5a5; }
 .admin-bar-btn.logout-btn { background: #dc2626; color: #ffffff; border: none; }
 .admin-bar-btn.logout-btn:hover { background: #b91c1c; }
@@ -4331,7 +4337,7 @@ button {
 }
 
 .admin-modal-header {
-  background: linear-gradient(135deg, #004088 0%, #1e56a0 100%);
+  background: linear-gradient(135deg, #c56024 0%, #b04d16 100%);
   color: #ffffff;
   padding: 16px 24px;
   display: flex;
@@ -4382,13 +4388,13 @@ button {
 }
 
 .admin-modal-nav-btn:hover {
-  color: #004088;
+  color: #c56024;
   background: #e2e8f0;
 }
 
 .admin-modal-nav-btn.active {
-  color: #004088;
-  border-bottom-color: #004088;
+  color: #c56024;
+  border-bottom-color: #c56024;
   background: #ffffff;
 }
 
@@ -4401,7 +4407,7 @@ button {
 /* Edit Forms & Controls */
 .admin-edit-form h4, .admin-logs-management h4 {
   font-size: 1.1rem;
-  color: #004088;
+  color: #c56024;
   margin-bottom: 16px;
 }
 
@@ -4429,7 +4435,7 @@ button {
 }
 
 .admin-input:focus, .admin-textarea:focus {
-  border-color: #004088;
+  border-color: #c56024;
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 64, 136, 0.15);
 }
@@ -4475,9 +4481,9 @@ button {
 }
 
 .admin-subtab.active {
-  background: #004088;
+  background: #c56024;
   color: #ffffff;
-  border-color: #004088;
+  border-color: #c56024;
 }
 
 .admin-rooms-editor-layout {
@@ -4522,12 +4528,12 @@ button {
 }
 
 .admin-room-list-item:hover {
-  border-color: #004088;
+  border-color: #c56024;
   background: #f0fdf4;
 }
 
 .admin-room-list-item.active {
-  border-color: #004088;
+  border-color: #c56024;
   background: #ebf8ff;
   font-weight: 700;
   box-shadow: 0 2px 6px rgba(0, 64, 136, 0.15);

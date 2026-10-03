@@ -30,7 +30,6 @@ export const Facilities: React.FC<FacilitiesProps> = ({ t }) => {
                 transition: 'all 0.3s ease'
               }}
             >
-              <div style={{ fontSize: '2.5rem', lineHeight: '1', marginBottom: '14px' }}>{item.icon}</div>
               <h3 style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'var(--primary-color)', marginBottom: '8px' }}>
                 {item.title}
               </h3>

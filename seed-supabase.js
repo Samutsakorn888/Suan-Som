@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 
-const SUPABASE_URL = 'https://jwcanvzcnjudthruulul.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_c2PNad_RRkZut9m_K9HETg_brXqQKMn';
+const SUPABASE_URL = 'https://hptfgaoxnkqjkrfjehbr.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_cbG2EPnpCg_QpzXPLYpK-A_9XwwVhNk';
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -181,17 +181,17 @@ const monthlyRooms = [
 
 async function seedData() {
   console.log('Clearing old data (if any)...');
-  await supabase.from('rooms').delete().neq('id', '00000000-0000-0000-0000-000000000000'); // Delete all
+  await supabase.from('room').delete().neq('id', '00000000-0000-0000-0000-000000000000'); // Delete all
 
   console.log('Inserting daily rooms...');
-  const { error: dailyErr } = await supabase.from('rooms').insert(dailyRooms);
+  const { error: dailyErr } = await supabase.from('room').insert(dailyRooms);
   if (dailyErr) {
     console.error('Error inserting daily rooms:', dailyErr);
     process.exit(1);
   }
 
   console.log('Inserting monthly rooms...');
-  const { error: monthlyErr } = await supabase.from('rooms').insert(monthlyRooms);
+  const { error: monthlyErr } = await supabase.from('room').insert(monthlyRooms);
   if (monthlyErr) {
     console.error('Error inserting monthly rooms:', monthlyErr);
     process.exit(1);
@@ -199,7 +199,7 @@ async function seedData() {
 
   console.log('Seed completed successfully!');
   
-  const { data } = await supabase.from('rooms').select('*');
+  const { data } = await supabase.from('room').select('*');
   console.log(`Total rows in 'rooms' table now: ${data.length}`);
 }
 

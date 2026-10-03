@@ -28,7 +28,9 @@ function App() {
   const [language, setLanguage] = useState<Language>('th');
   const [activeSection, setActiveSection] = useState<string>('home');
   const [isLineModalOpen, setIsLineModalOpen] = useState<boolean>(false);
-  const [adminMode, setAdminMode] = useState<'none' | 'login' | 'dashboard'>('none');
+  const [adminMode, setAdminMode] = useState<'none' | 'login' | 'dashboard'>(() => {
+    return (sessionStorage.getItem('ATS_ADMIN_STATE') as 'none' | 'login' | 'dashboard') || 'none';
+  });
   const [roomTab, setRoomTab] = useState<'daily' | 'monthly'>('daily');
 
   // Dynamic admin site data state
@@ -45,13 +47,37 @@ function App() {
   const isAdmin = adminMode === 'dashboard';
 
   // Active translation dictionary
-  const t = translations[language];
+  const baseT = translations[language];
+  const bankAccount = siteData.bankAccountVal || '707-2-49085-6';
+  const bankName = siteData.bankNameVal || baseT.bankName;
+  const bankAccountName = siteData.bankAccountName || baseT.bankAccNameVal;
+  const t = {
+    ...baseT,
+    bankName: bankName,
+    bankAccNameVal: bankAccountName,
+    bankAccountVal: bankAccount,
+    checkInSteps: (baseT.checkInSteps || []).map(step => 
+      step.includes('เลขที่บัญชี') 
+        ? `สแกนจ่ายเงินผ่านเลขที่บัญชี ${bankAccount} ${bankName} ${bankAccountName} (ไม่รับเงินสด)`
+        : step
+    ),
+    checkOutSteps: (baseT.checkOutSteps || []).map(step => 
+      step.includes('เลขบัญชี') 
+        ? `แจ้งเลขบัญชีเพื่อรับเงินประกันคืนใน LINE ${siteData.lineId || '0990954541'}`
+        : step
+    )
+  } as typeof baseT & { bankAccountVal: string };
 
   // Set page HTML lang attribute and document title dynamically
   useEffect(() => {
     document.documentElement.lang = language;
     document.title = `${t.brand} | ${t.subheading}`;
   }, [language, t]);
+
+  // Persist admin session
+  useEffect(() => {
+    sessionStorage.setItem('ATS_ADMIN_STATE', adminMode);
+  }, [adminMode]);
 
   // Attempt to redirect out of in-app browsers (LINE/Messenger)
   useEffect(() => {
@@ -83,7 +109,7 @@ function App() {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const { data, error } = await supabase.from('rooms').select('*');
+        const { data, error } = await supabase.from('room').select('*');
         if (error) throw error;
         if (data) {
           const parseArray = (val: any) => Array.isArray(val) ? val : (typeof val === 'string' ? (val.startsWith('[') ? JSON.parse(val) : val.split(',')) : []);

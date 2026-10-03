@@ -9,9 +9,9 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({ onLineClick })
     <div className="floating-actions">
       {/* Phone Call Button */}
       <a
-        href="tel:0990954541"
+        href="tel:0945095963"
         className="floating-btn floating-btn-phone"
-        title="โทรออก 099-095-4541"
+        title="โทรออก 065-464-7459"
       >
         <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: '28px', height: '28px' }}>
           <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.053 15.053 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.57 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.57c0-.55-.45-1-1-1z" />
@@ -20,7 +20,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({ onLineClick })
 
       {/* Facebook Button */}
       <a
-        href="https://www.facebook.com/profile.php?id=61553464657033"
+        href="https://www.facebook.com/profile.php?id=61589175011943"
         target="_blank"
         rel="noopener noreferrer"
         className="floating-btn floating-btn-facebook"
