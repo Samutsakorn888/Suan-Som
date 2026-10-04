@@ -217,7 +217,7 @@ export const translations: Record<Language, Translations> = {
         navFaq: "คำถามที่พบบ่อย",
         navReviews: "รีวิวผู้เข้าพัก",
         welcome: "ยินดีต้อนรับสู่ แอทสมุทรสาคร สาขาสวนส้ม",
-        subheading: "ที่พักสะอาด ปลอดภัย ใจกลางเมืองมหาชัย",
+        subheading: "ที่พักสะอาด ปลอดภัย ที่จอดรถในอาคาร",
         selectRoomBtn: "เลือกดูห้องพัก",
         roomSectionTitle: "ประเภทห้องพักรายวันและรายเดือน",
         roomSectionSubtitle: "พักผ่อนสบาย เป็นส่วนตัว แอร์เย็นฉ่ำ สิ่งอำนวยความสะดวกครบครัน",
