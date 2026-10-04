@@ -208,7 +208,7 @@ export interface Translations {
 
 export const translations: Record<Language, Translations> = {
     th: {
-        brand: "แอทสมุทรสาคร สาขาสวนส้ม",
+        brand: "@สมุทรสาครสาขาสวนส้ม",
         navHome: "หน้าแรก",
         navRooms: "ประเภทห้องพัก",
         navFacilities: "สิ่งอำนวยความสะดวก",
