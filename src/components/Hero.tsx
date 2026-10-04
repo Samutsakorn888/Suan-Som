@@ -29,7 +29,10 @@ export const Hero: React.FC<HeroProps> = ({
     const setActiveTab = propSetActiveTab !== undefined ? propSetActiveTab : setInternalTab;
 
     const titleText = (language === 'th' && siteData?.heroTitle) ? siteData.heroTitle : t.welcome;
-    const subtitleText = (language === 'th' && siteData?.heroSubtitle) ? siteData.heroSubtitle : t.subheading;
+    let subtitleText = (language === 'th' && siteData?.heroSubtitle) ? siteData.heroSubtitle : t.subheading;
+    if (subtitleText === 'ที่พักสะอาด ปลอดภัย ใจกลางเมืองมหาชัย') {
+        subtitleText = 'ที่พักสะอาด ปลอดภัย ที่จอดรถในอาคาร';
+    }
 
     const handleScrollToRooms = (tab: 'daily' | 'monthly') => {
         setActiveTab(tab);
