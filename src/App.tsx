@@ -43,6 +43,7 @@ function App() {
   const [targetRoomType, setTargetRoomType] = useState<'daily' | 'monthly'>('daily');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [refreshTrigger, setRefreshTrigger] = useState<number>(0);
+  const [isDataReady, setIsDataReady] = useState<boolean>(false);
 
   const isAdmin = adminMode === 'dashboard';
 
@@ -172,6 +173,8 @@ function App() {
         }
       } catch (err) {
         console.error('Error fetching admin sync:', err);
+      } finally {
+        setIsDataReady(true);
       }
     };
     fetchData();
@@ -264,6 +267,20 @@ function App() {
     setSiteData(reset);
     showToast('รีเซ็ตข้อมูลเป็นค่าเริ่มต้นเรียบร้อยแล้ว');
   };
+
+  if (!isDataReady) {
+    return (
+      <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#fcfaf8' }}>
+        <div style={{ textAlign: 'center' }}>
+           <div style={{ width: '40px', height: '40px', border: '4px solid #f3f3f3', borderTop: '4px solid #ff7e5f', borderRadius: '50%', animation: 'spin 1s linear infinite', margin: '0 auto' }}></div>
+           <p style={{ marginTop: '16px', color: '#666', fontFamily: 'Kanit' }}>กำลังโหลดข้อมูล...</p>
+           <style>
+             {`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}
+           </style>
+        </div>
+      </div>
+    );
+  }
 
   if (adminMode === 'login') {
     return (
