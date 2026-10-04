@@ -38,7 +38,7 @@ export const NearbyPlaces: React.FC<NearbyPlacesProps> = ({ t }) => {
  <p>{t.mapSubheading || t.addressVal || 'ท่าทราย อำเภอเมืองสมุทรสาคร อำเภอเมือง จังหวัดสมุทรสาคร'}</p>
  </div>
  <a
- href="https://maps.app.goo.gl/8NCtUCz332wmwEuz9"
+ href="https://maps.app.goo.gl/AQB2XUNa5XgehBEn6?g_st=ic"
  target="_blank"
  rel="noopener noreferrer"
  className="btn btn-primary btn-gps"

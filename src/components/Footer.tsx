@@ -73,7 +73,7 @@ export const Footer: React.FC<FooterProps> = ({
  <div className="footer-contact-label"style={{ marginBottom: '12px', color: 'var(--white)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
  <span>️ {t.mapLabel}</span>
  <a 
- href="https://maps.app.goo.gl/8NCtUCz332wmwEuz9"
+ href="https://maps.app.goo.gl/AQB2XUNa5XgehBEn6?g_st=ic"
  target="_blank"
  rel="noopener noreferrer"
  style={{ color: '#90cdf4', fontSize: '0.85rem', fontWeight: '600', textDecoration: 'underline' }}
