@@ -21,7 +21,7 @@ export const UtilityCalculator: React.FC<UtilityCalculatorProps> = ({ t, languag
  const [selectedRoomIndex, setSelectedRoomIndex] = useState<number>(0);
  const [elecUnits, setElecUnits] = useState<number>(100);
  const [waterUnits, setWaterUnits] = useState<number>(5);
- const [hasCar, setHasCar] = useState<boolean>(false);
+ const [carParkType, setCarParkType] = useState<'none' | '300' | '500'>('none');
  const [hasMoto, setHasMoto] = useState<boolean>(false);
  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
@@ -68,7 +68,7 @@ export const UtilityCalculator: React.FC<UtilityCalculatorProps> = ({ t, languag
  const maintenanceCost = 200;
 
  // Parking costs
- const carCost = hasCar ? 500 : 0;
+ const carCost = carParkType === '500' ? 500 : (carParkType === '300' ? 300 : 0);
  const motoCost = hasMoto ? 100 : 0;
 
  // Total monthly estimated expense
@@ -87,7 +87,7 @@ ${t.calcRoomTypeLabel || 'ประเภทห้อง'}: ${currentRoomName}
 ${t.calcElecBreakdown || 'ค่าไฟฟ้าประมาณ'}: (${elecUnits} ${unitLabel} @ 9 ${thb}) = ${elecCost.toLocaleString()} ${thb}
 ${t.calcWaterBreakdown || 'ค่าน้ำประปาประมาณ'}: (${waterUnits} ${unitLabel}) = ${waterCost.toLocaleString()} ${thb}
 ${t.calcCommonFeeBreakdown || 'ค่าส่วนกลาง'}: ${maintenanceCost.toLocaleString()} ${thb}
-${t.calcCarBreakdown || 'ค่าจอดรถยนต์'}: ${carCost > 0 ? '1,000' : '0'} ${thb}
+${t.calcCarBreakdown || 'ค่าจอดรถยนต์'}: ${carCost > 0 ? carCost.toLocaleString() : '0'} ${thb}
 ${t.calcMotoBreakdown || 'ค่าจอดรถมอเตอร์ไซค์'}: ${motoCost > 0 ? '100' : '0'} ${thb}
 ------------------------------------------------
 ${t.calcTotalMonthly || 'ยอดรวมประมาณการรายเดือน'}: ${totalMonthlyCost.toLocaleString()} ${pm}
@@ -186,13 +186,21 @@ LINE ID: 0945095963`;
  <div className="calc-group">
  <label className="calc-label">{t.calcParkingTitle || '🅿️ บริการที่จอดรถเพิ่มเติม'}</label>
  <div className="calc-checkbox-grid">
- <label className={`calc-checkbox-card ${hasCar ? 'active' : ''}`}>
+ <label className={`calc-checkbox-card ${carParkType === '300' ? 'active' : ''}`}>
  <input
  type="checkbox"
- checked={hasCar}
- onChange={(e) => setHasCar(e.target.checked)}
+ checked={carParkType === '300'}
+ onChange={(e) => setCarParkType(e.target.checked ? '300' : 'none')}
  />
- <span>{t.calcCarLabel || 'จอดรถยนต์ (1,000 บาท/เดือน)'}</span>
+ <span>ค่าจอดรถยนต์ (300 บาท/เดือน)</span>
+ </label>
+ <label className={`calc-checkbox-card ${carParkType === '500' ? 'active' : ''}`}>
+ <input
+ type="checkbox"
+ checked={carParkType === '500'}
+ onChange={(e) => setCarParkType(e.target.checked ? '500' : 'none')}
+ />
+ <span>ค่าจอดรถยนต์ (500 บาท/เดือน)</span>
  </label>
  <label className={`calc-checkbox-card ${hasMoto ? 'active' : ''}`}>
  <input
@@ -227,10 +235,10 @@ LINE ID: 0945095963`;
  <span>{t.calcCommonFeeBreakdown || 'ค่าส่วนกลางอาคาร'}</span>
  <span>{maintenanceCost.toLocaleString()} {thb}</span>
  </div>
- {hasCar && (
+ {carCost > 0 && (
  <div className="breakdown-item">
  <span>{t.calcCarBreakdown || 'ค่าจอดรถยนต์'}</span>
- <span>1,000 {thb}</span>
+ <span>{carCost.toLocaleString()} {thb}</span>
  </div>
  )}
  {hasMoto && (
