@@ -4661,3 +4661,5 @@ button {
 }
 
 
+
+@media (max-width: 640px) { .booking-inputs-grid { grid-template-columns: 1fr; } }

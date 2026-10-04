@@ -156,13 +156,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
  
  {/* Modal Header */}
  <div className="booking-modal-header no-print">
- <div style={{ display: 'flex', alignItems: 'center' }}>
- <button className="modal-back-btn"onClick={onClose} title="ย้อนกลับ">
+ <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px', flex: 1, minWidth: 0 }}>
+ <button className="modal-back-btn"onClick={onClose} title="ย้อนกลับ" style={{ flexShrink: 0 }}>
  ← ย้อนกลับ
  </button>
- <div className="modal-header-brand">
- <span className="hotel-badge-pill">@Samutsakorn SuanSom</span>
- <h3>สรุปรายการจองห้องพัก</h3>
+ <div className="modal-header-brand" style={{ minWidth: 0, flex: 1 }}>
+ <span className="hotel-badge-pill" style={{ display: 'none' }}>@Samutsakorn SuanSom</span>
+ <h3 style={{ fontSize: '1.1rem', whiteSpace: 'normal', wordBreak: 'break-word', margin: 0 }}>สรุปรายการจองห้องพัก</h3>
  </div>
  </div>
  <button className="modal-close-circle"onClick={onClose} title="ปิดหน้าต่าง">
