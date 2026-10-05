@@ -4708,3 +4708,26 @@ button {
     flex-wrap: wrap !important;
   }
 }
+
+/* Google Translate Customization */
+.VIpgJd-ZVi9od-ORHb-OEVmcd { display: none !important; }
+.goog-te-banner-frame.skiptranslate { display: none !important; }
+body { top: 0px !important; }
+#google_translate_element select {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-family: 'Prompt', sans-serif;
+  font-size: 0.9rem;
+  color: #334155;
+  outline: none;
+  cursor: pointer;
+}
+.goog-te-gadget {
+  font-size: 0 !important;
+  color: transparent !important;
+}
+.goog-te-gadget span {
+  display: none !important;
+}

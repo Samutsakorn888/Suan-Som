@@ -173,7 +173,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
  </div>
 
  {/* Printable & Downloadable Modal Body */}
- <div className="booking-modal-body"ref={summaryRef}>
+ <div className="booking-modal-body notranslate" ref={summaryRef}>
  
  {/* Formal Document Header */}
  <div className="formal-quotation-header">

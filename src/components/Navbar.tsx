@@ -128,31 +128,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </ul>
 
         {/* 3. Right: Language Switcher */}
-        <div className="lang-switcher" ref={dropdownRef}>
-          <button className="lang-btn" onClick={() => setDropdownOpen(!dropdownOpen)}>
-            <span>{currentLang.flag}</span>
-            <span>{currentLang.label}</span>
-            <span style={{ fontSize: '0.8rem', transform: dropdownOpen ? 'rotate(180deg)' : 'rotate(0)' }}>▼</span>
-          </button>
-
-          {dropdownOpen && (
-            <div className="lang-dropdown">
-              {languages.map((lang) => (
-                <button
-                  key={lang.code}
-                  className={`lang-option ${language === lang.code ? 'active' : ''}`}
-                  onClick={() => {
-                    setLanguage(lang.code);
-                    setDropdownOpen(false);
-                  }}
-                >
-                  <span>{lang.flag}</span>
-                  <span>{lang.label}</span>
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
+        <div id="google_translate_element" className="lang-switcher" style={{ minHeight: '36px', display: 'flex', alignItems: 'center' }}></div>
 
       </div>
     </header>
