@@ -574,7 +574,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
  <label>การชำระค่ามัดจำประกันห้อง (รวม ฿{totalDeposit.toLocaleString()} บาท / {totalRoomsCount} ห้อง)</label>
  <div className="deposit-toggle-group">
  <div
- className={`deposit-toggle-card ${!payDepositNow ? 'active' : ''}`}
+ className={`deposit-toggle-card ${!payDepositNow ? 'active' : ''}`} key={`pay-later-${payDepositNow}`}
  onClick={() => setPayDepositNow(false)}
  >
  <div className="radio-dot"></div>
@@ -585,7 +585,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
  </div>
 
  <div
- className={`deposit-toggle-card ${payDepositNow ? 'active' : ''}`}
+ className={`deposit-toggle-card ${payDepositNow ? 'active' : ''}`} key={`pay-now-${payDepositNow}`}
  onClick={() => setPayDepositNow(true)}
  >
  <div className="radio-dot"></div>
@@ -712,19 +712,19 @@ export const BookingModal: React.FC<BookingModalProps> = ({
  </tbody>
  <tfoot>
  <tr className="grand-total-row">
- <td colSpan={3} className="total-label-cell">
+ <td colSpan={3} className="total-label-cell" key={`label-${isMonthly}`}>
  <strong>
  {isMonthly
  ? 'ยอดเงินมัดจำและค่าคีย์การ์ดที่ต้องชำระในการจอง (TOTAL AMOUNT DUE)'
  : 'ยอดเงินรวมทั้งสิ้นที่ต้องชำระ (TOTAL AMOUNT DUE)'}
  </strong>
- <span className="total-subtext">
+ <span className="total-subtext" key={`${payDepositNow}-${depositOption}-${totalKeycardFee}`}>
  {isMonthly
  ? `(รวมเงินมัดจำประกันห้อง ฿${totalDeposit.toLocaleString()} + ค่าคีย์การ์ด ฿${totalKeycardFee.toLocaleString()} | ค่าเช่าชำระรายเดือน ณ วันเข้าพัก)`
  : (payDepositNow ? '(รวมค่าห้องและค่ามัดจำประกันห้องแล้ว)' : '(ยังไม่รวมค่ามัดจำประกันห้องที่ชำระวันเช็คอิน)')}
  </span>
  </td>
- <td colSpan={2} className="total-amount-cell">
+ <td colSpan={2} className="total-amount-cell" key={grandTotalCalc}>
  ฿{grandTotalCalc.toLocaleString()}
  </td>
  </tr>
