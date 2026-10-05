@@ -33,6 +33,8 @@ export const BookingModal: React.FC<BookingModalProps> = ({
  const [bookingNights, setBookingNights] = useState<number | ''>(1);
  const [bookingMonths, setBookingMonths] = useState<number | ''>(initialDuration);
  const [payDepositNow, setPayDepositNow] = useState<boolean>(false);
+  const [customDeposit, setCustomDeposit] = useState<number | ''>('');
+  const [keycardsCount, setKeycardsCount] = useState<number>(1);
  const [checkInDate, setCheckInDate] = useState<string>(() => new Date().toISOString().split('T')[0]);
  const [guestName, setGuestName] = useState<string>('');
  const [guestPhone, setGuestPhone] = useState<string>('');
@@ -250,14 +252,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({
  return acc + (effectivePrice * (item.count || 1) * dur);
  }, 0);
 
- const totalDeposit = selectedBookingItems.reduce((acc, item) => {
+ const baseTotalDeposit = selectedBookingItems.reduce((acc, item) => {
  const depVal = item.roomData?.deposit
  ? parseInt(item.roomData.deposit.toString().replace(/,/g, ''))
  : ((item.roomData?.name || '').includes('สูท') ? 1000 : 500);
  return acc + (depVal * (item.count || 1));
  }, 0);
 
- const totalKeycardFee = isMonthly ? (100 * totalRoomsCount) : 0;
+ const totalDeposit = isMonthly 
+ ? (typeof customDeposit === 'number' ? customDeposit : baseTotalDeposit) 
+ : baseTotalDeposit;
+
+ const totalKeycardFee = isMonthly ? (100 * keycardsCount) : 0;
 
  const grandTotalCalc = isMonthly ? (totalDeposit + totalKeycardFee) : (totalRoomRental + (payDepositNow ? totalDeposit : 0));
 
@@ -512,7 +518,45 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
  {isMonthly ? (
  <div className="booking-input-group full-width">
- <label>ยอดเงินมัดจำประกันห้องและค่าคีย์การ์ดเพื่อยืนยันการจอง (รวม {totalRoomsCount} ห้อง)</label>
+ <label>ยอดเงินมัดจำประกันห้องและค่าคีย์การ์ดเพื่อยืนยันการจอง</label>
+ 
+ <div style={{ display: 'flex', gap: '12px', marginBottom: '12px', flexWrap: 'wrap' }}>
+ <div style={{ flex: '1 1 200px' }}>
+ <label style={{ fontSize: '0.85rem', color: '#475569', marginBottom: '4px', display: 'block', fontWeight: 'bold' }}>ต้องการชำระมัดจำ (ขั้นต่ำ 2,000 บาท)</label>
+ <input
+ type="number"
+ className="booking-text-input"
+ placeholder={`ค่าเริ่มต้น ฿${baseTotalDeposit.toLocaleString()}`}
+ value={customDeposit}
+ min={2000}
+ onChange={e => {
+ const val = parseInt(e.target.value);
+ setCustomDeposit(isNaN(val) ? '' : val);
+ }}
+ onBlur={() => {
+ if (typeof customDeposit === 'number' && customDeposit < 2000) {
+ setCustomDeposit(2000);
+ }
+ }}
+ style={{ width: '100%' }}
+ />
+ </div>
+ <div style={{ flex: '1 1 200px' }}>
+ <label style={{ fontSize: '0.85rem', color: '#475569', marginBottom: '4px', display: 'block', fontWeight: 'bold' }}>จำนวนคีย์การ์ด (สูงสุด 3 ใบ)</label>
+ <select
+ className="booking-text-input"
+ value={keycardsCount}
+ onChange={e => setKeycardsCount(parseInt(e.target.value))}
+ style={{ width: '100%' }}
+ >
+ <option value={0}>ไม่รับคีย์การ์ด (0 บาท)</option>
+ <option value={1}>1 ใบ (100 บาท)</option>
+ <option value={2}>2 ใบ (200 บาท)</option>
+ <option value={3}>3 ใบ (300 บาท)</option>
+ </select>
+ </div>
+ </div>
+
  <div style={{
  backgroundColor: '#ebf8ff',
  border: '1.5px solid #93c5fd',
@@ -526,11 +570,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
  gap: '6px'
  }}>
  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
- <span>เงินมัดจำประกันห้องพัก ({totalRoomsCount} ห้อง):</span>
+ <span>เงินมัดจำชำระล่วงหน้า:</span>
  <span>฿{totalDeposit.toLocaleString()} บาท</span>
  </div>
  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
- <span>ค่าซื้อคีย์การ์ดเข้าอาคาร ({totalRoomsCount} ใบ):</span>
+ <span>ค่าซื้อคีย์การ์ดเข้าอาคาร ({keycardsCount} ใบ):</span>
  <span>฿{totalKeycardFee.toLocaleString()} บาท</span>
  </div>
  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '6px', borderTop: '1px dashed #93c5fd', marginTop: '2px' }}>
@@ -626,15 +670,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
  <tr>
  <td style={{ textAlign: 'center' }}>{selectedBookingItems.length + 1}</td>
  <td>
- <strong>เงินมัดจำประกันห้องพักเพื่อการจอง/เข้าพัก (รวม {totalRoomsCount} ห้อง)</strong>
+ <strong>เงินมัดจำประกันห้องพักเพื่อการจอง/เข้าพัก (ชำระล่วงหน้า)</strong>
  <div className="table-sub-detail"style={{ color: '#059669', fontWeight: 600 }}>
  ได้รับเงินมัดจำคืนเต็มจำนวน ณ วันเช็คเอ้าท์เมื่ออยู่ครบสัญญาและตรวจสอบห้องพักเรียบร้อย
  </div>
  </td>
- <td style={{ textAlign: 'center' }}>{totalRoomsCount} ห้อง</td>
- <td style={{ textAlign: 'right' }}>฿{totalRoomsCount > 0 ? (totalDeposit / totalRoomsCount).toLocaleString() : '0'}</td>
+ <td style={{ textAlign: 'center' }}>-</td>
+ <td style={{ textAlign: 'right' }}>-</td>
  <td style={{ textAlign: 'right', fontWeight: 700, color: '#c56024', fontSize: '0.95rem' }}>฿{totalDeposit.toLocaleString()}</td>
  </tr>
+ {keycardsCount > 0 && (
  <tr>
  <td style={{ textAlign: 'center' }}>{selectedBookingItems.length + 2}</td>
  <td>
@@ -643,10 +688,11 @@ export const BookingModal: React.FC<BookingModalProps> = ({
  ค่าคีย์การ์ดสำหรับเข้า-ออกอาคารและห้องพัก (100 บาท / ใบ)
  </div>
  </td>
- <td style={{ textAlign: 'center' }}>{totalRoomsCount} ใบ</td>
+ <td style={{ textAlign: 'center' }}>{keycardsCount} ใบ</td>
  <td style={{ textAlign: 'right' }}>฿100</td>
  <td style={{ textAlign: 'right', fontWeight: 700, color: '#c56024', fontSize: '0.95rem' }}>฿{totalKeycardFee.toLocaleString()}</td>
  </tr>
+ )}
  </>
  ) : (
  payDepositNow ? (
