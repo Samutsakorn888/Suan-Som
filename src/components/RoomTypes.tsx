@@ -571,7 +571,8 @@ export const RoomTypes: React.FC<RoomTypesProps> = ({
  </div>
  </div>
 
- <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'center' }}>
+ {isAdmin && (
+<div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'center' }}>
  <div style={{ backgroundColor: 'rgba(255,255,255,0.18)', padding: '6px 14px', borderRadius: '8px', fontSize: '0.88rem', fontWeight: 'bold' }}>
  {language === 'en' ? 'Room Types:' : language === 'cn' ? '房型种类:' : language === 'mm' ? 'အခန်းပုံစံ:' : 'รูปแบบห้อง:'} <strong>{monthlyRoomsData.length}</strong> {language === 'en' ? 'types' : language === 'cn' ? '种' : language === 'mm' ? 'မျိုး' : 'แบบ'}
  </div>
@@ -579,6 +580,7 @@ export const RoomTypes: React.FC<RoomTypesProps> = ({
  {(t.monthlyAvailableBadge || 'มีห้องว่างทั้งหมด {count} ห้อง').replace('{count}', String(totalMonthlyAvailableCount))}
  </div>
  </div>
+)}
  </div>
 
  <div className="rooms-grid">
