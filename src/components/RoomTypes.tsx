@@ -352,7 +352,7 @@ export const RoomTypes: React.FC<RoomTypesProps> = ({
  <span style={{ fontSize: '1.6rem' }}></span>
  <div>
  <h4 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 'bold', color: '#ffffff' }}>
- {(t.dailyRoomsOverviewTitle || 'สถานะห้องพักรายวัน (รวมทั้งหมด {total} ห้อง)').replace('{total}', String(totalDailyRoomsCount))}
+ {t.dailyRoomsOverviewTitle || 'รูปแบบห้องพักรายวัน'}
  </h4>
  
  </div>
@@ -563,7 +563,7 @@ export const RoomTypes: React.FC<RoomTypesProps> = ({
  <span style={{ fontSize: '1.6rem' }}></span>
  <div>
  <h4 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 'bold', color: '#ffffff' }}>
- {t.monthlyOverviewTitle || `สถานะห้องพักรายเดือน (${monthlyRoomsData.length} รูปแบบห้องพัก)`}
+ {t.monthlyOverviewTitle || 'รูปแบบห้องพักรายเดือน'}
  </h4>
  <span style={{ fontSize: '0.82rem', opacity: 0.9 }}>
  {t.monthlyOverviewSub || 'เช็คเลขห้องที่ว่างพร้อมเข้าอยู่ได้ทันที อัตราค่าเช่า และเงินมัดจำแรกเข้า'}

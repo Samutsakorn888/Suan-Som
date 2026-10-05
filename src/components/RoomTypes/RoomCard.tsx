@@ -95,6 +95,7 @@ export const DailyRoomCard: React.FC<DailyRoomCardProps> = ({
  title={isAdmin ? 'คลิกเพื่อเปลี่ยนสถานะห้องว่าง/เต็ม' : ''}
  >
  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0' }}>
+ {isAdmin && (
  <span style={{
  fontWeight: 900,
  fontSize: '1rem',
@@ -105,6 +106,7 @@ export const DailyRoomCard: React.FC<DailyRoomCardProps> = ({
  }}>
  {room.data.availableRooms > 0 ? (language === 'en' ? 'Available' : language === 'cn' ? '可入住' : language === 'mm' ? 'လစ်လပ်' : 'สถานะ: ว่าง') : (language === 'en' ? 'Full (Occupied)' : language === 'cn' ? '已满 (Occupied)' : language === 'mm' ? 'ပြည့်ပြီး' : 'สถานะ: เต็มแล้ว')}
  </span>
+ )}
  {isAdmin && room.data.availableRooms > 0 && (
  <span style={{
  fontSize: '1.25rem',
@@ -253,6 +255,7 @@ export const MonthlyRoomCard: React.FC<MonthlyRoomCardProps> = ({
  title={isAdmin ? 'คลิกเพื่อเปลี่ยนสถานะห้องว่าง/เต็ม' : ''}
  >
  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '6px 0' }}>
+ {isAdmin && (
  <span style={{
  fontWeight: 900,
  fontSize: '1rem',
@@ -263,6 +266,7 @@ export const MonthlyRoomCard: React.FC<MonthlyRoomCardProps> = ({
  }}>
  {hasAvailable ? (language === 'en' ? 'Ready' : language === 'cn' ? '随时可入住' : language === 'mm' ? 'အသင့်နေနိုင်သည်' : 'สถานะ: ว่าง') : (language === 'en' ? 'Full (Occupied)' : language === 'cn' ? '已满 (Occupied)' : language === 'mm' ? 'ပြည့်ပြီး' : 'สถานะ: เต็มแล้ว')}
  </span>
+ )}
  {isAdmin && hasAvailable && (
  <span style={{
  fontSize: '1.25rem',
