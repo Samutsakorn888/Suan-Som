@@ -718,7 +718,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
  ? 'ยอดเงินมัดจำและค่าคีย์การ์ดที่ต้องชำระในการจอง (TOTAL AMOUNT DUE)'
  : 'ยอดเงินรวมทั้งสิ้นที่ต้องชำระ (TOTAL AMOUNT DUE)'}
  </strong>
- <span className="total-subtext" key={`${payDepositNow}-${depositOption}-${totalKeycardFee}`}>
+ <span className="total-subtext" key={`${payDepositNow}-${totalKeycardFee}`}>
  {isMonthly
  ? `(รวมเงินมัดจำประกันห้อง ฿${totalDeposit.toLocaleString()} + ค่าคีย์การ์ด ฿${totalKeycardFee.toLocaleString()} | ค่าเช่าชำระรายเดือน ณ วันเข้าพัก)`
  : (payDepositNow ? '(รวมค่าห้องและค่ามัดจำประกันห้องแล้ว)' : '(ยังไม่รวมค่ามัดจำประกันห้องที่ชำระวันเช็คอิน)')}
