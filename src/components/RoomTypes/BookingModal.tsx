@@ -152,28 +152,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
  });
  }
  };
- return createPortal(
- <div className="modal-overlay"onClick={onClose}>
- <div className="booking-modal-card"onClick={e => e.stopPropagation()}>
  
- {/* Modal Header */}
- <div className="booking-modal-header no-print">
- <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px', flex: 1, minWidth: 0 }}>
- <button className="modal-back-btn"onClick={onClose} title="ย้อนกลับ" style={{ flexShrink: 0 }}>
- ← ย้อนกลับ
- </button>
- <div className="modal-header-brand" style={{ minWidth: 0, flex: 1 }}>
- <span className="hotel-badge-pill" style={{ display: 'none' }}>@Samutsakorn SuanSom</span>
- <h3 style={{ fontSize: '1.1rem', whiteSpace: 'normal', wordBreak: 'break-word', margin: 0 }}>สรุปรายการจองห้องพัก</h3>
- </div>
- </div>
- <button className="modal-close-circle"onClick={onClose} title="ปิดหน้าต่าง">
- &times;
- </button>
- </div>
-
- {/* Printable & Downloadable Modal Body */}
- <div className="booking-modal-body notranslate" ref={summaryRef}>
+  const renderReceiptBody = (isForPrint: boolean) => (
+    <div 
+      className={`booking-modal-body ${isForPrint ? 'notranslate' : ''}`} 
+      ref={isForPrint ? summaryRef : null}
+      style={isForPrint ? { position: 'absolute', left: '-9999px', top: 0, width: '800px', backgroundColor: 'white' } : {}}
+    >
+      
  
  {/* Formal Document Header */}
  <div className="formal-quotation-header">
@@ -782,10 +768,37 @@ export const BookingModal: React.FC<BookingModalProps> = ({
  );
  })()}
 
+ 
+    </div>
+  );
+
+  return createPortal(
+ <div className="modal-overlay"onClick={onClose}>
+ <div className="booking-modal-card"onClick={e => e.stopPropagation()}>
+ 
+ {/* Modal Header */}
+ <div className="booking-modal-header no-print">
+ <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '8px', flex: 1, minWidth: 0 }}>
+ <button className="modal-back-btn"onClick={onClose} title="ย้อนกลับ" style={{ flexShrink: 0 }}>
+ ← ย้อนกลับ
+ </button>
+ <div className="modal-header-brand" style={{ minWidth: 0, flex: 1 }}>
+ <span className="hotel-badge-pill" style={{ display: 'none' }}>@Samutsakorn SuanSom</span>
+ <h3 style={{ fontSize: '1.1rem', whiteSpace: 'normal', wordBreak: 'break-word', margin: 0 }}>สรุปรายการจองห้องพัก</h3>
+ </div>
+ </div>
+ <button className="modal-close-circle"onClick={onClose} title="ปิดหน้าต่าง">
+ &times;
+ </button>
  </div>
 
- {/* Modal Footer Buttons */}
- <div className="booking-modal-footer no-print">
+ {/* Printable & Downloadable Modal Body */}
+ <>
+        {renderReceiptBody(false)}
+        {renderReceiptBody(true)}
+        </>
+
+        <div className="booking-modal-footer no-print">
  <button className="btn-modal-close"onClick={onClose}>
  ปิดหน้าต่าง
  </button>
