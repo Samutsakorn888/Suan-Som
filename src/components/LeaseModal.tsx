@@ -28,7 +28,7 @@ export const LeaseModal: React.FC<LeaseModalProps> = ({ isOpen, onClose }) => {
                         </div>
                     </div>
                     <button className="modal-close-circle" onClick={onClose} title="ปิดหน้าต่าง">
-
+                        &times;
                     </button>
                 </div>
 

@@ -168,7 +168,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
  </div>
  </div>
  <button className="modal-close-circle"onClick={onClose} title="ปิดหน้าต่าง">
- 
+ &times;
  </button>
  </div>
 

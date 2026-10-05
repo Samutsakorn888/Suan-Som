@@ -229,7 +229,7 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ t }) => {
  <span className="hotel-badge-pill">@Samutsakorn SuanSom</span>
  <h3>เขียนรีวิวความประทับใจ</h3>
  </div>
- <button className="modal-close-circle"onClick={() => setIsModalOpen(false)}></button>
+ <button className="modal-close-circle"onClick={() => setIsModalOpen(false)}>&times;</button>
  </div>
 
  <form onSubmit={handleSubmitReview} className="booking-modal-body">
