@@ -51,7 +51,6 @@ export const RoomComparisonModal: React.FC<RoomComparisonModalProps> = ({
  <th>{t.compareHeaderRoomType || 'ประเภทห้องพักรายเดือน'}</th>
  <th>{t.compareHeaderRent || 'อัตราค่าเช่า (บาท/เดือน)'}</th>
  <th>{t.compareHeaderDeposit || 'เงินมัดจำแรกเข้า (บาท)'}</th>
- <th>{t.compareHeaderStatus || 'สถานะ & เลขห้องว่าง'}</th>
  <th>{t.compareHeaderAir || 'เครื่องปรับอากาศ'}</th>
  <th>{t.compareHeaderFurniture || 'เฟอร์นิเจอร์'}</th>
  <th>{t.compareHeaderHighlights || 'จุดเด่นพิเศษ'}</th>
@@ -94,24 +93,6 @@ export const RoomComparisonModal: React.FC<RoomComparisonModalProps> = ({
  </td>
  <td className="price-cell">฿{room.price}</td>
  <td className="deposit-cell">฿{room.deposit}</td>
- <td className="availability-cell">
- {hasAvailable ? (
- <div>
- <span className="tag-yes"style={{ display: 'inline-block', marginBottom: '4px', fontSize: '0.8rem' }}>
- {availBadgeText}
- </span>
- <div style={{ fontSize: '0.78rem', color: '#1e293b' }}>
- {room.availableRoomsList.map((rNo: string, i: number) => (
- <span key={i} style={{ display: 'inline-block', background: '#f1f5f9', border: '1px solid #cbd5e1', borderRadius: '4px', padding: '0 5px', margin: '1px 2px', fontWeight: 'bold' }}>
- {rNo}
- </span>
- ))}
- </div>
- </div>
- ) : (
- <span className="tag-no"style={{ fontSize: '0.8rem' }}>{fullBadgeText}</span>
- )}
- </td>
  <td className="air-cell">
  <span className={hasAir ? 'tag-yes' : 'tag-no'}>{airBadge}</span>
  </td>
