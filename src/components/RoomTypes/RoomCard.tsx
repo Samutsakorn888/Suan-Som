@@ -105,7 +105,7 @@ export const DailyRoomCard: React.FC<DailyRoomCardProps> = ({
  }}>
  {room.data.availableRooms > 0 ? (language === 'en' ? 'Available' : language === 'cn' ? '可入住' : language === 'mm' ? 'လစ်လပ်' : 'สถานะ: ว่าง') : (language === 'en' ? 'Full (Occupied)' : language === 'cn' ? '已满 (Occupied)' : language === 'mm' ? 'ပြည့်ပြီး' : 'สถานะ: เต็มแล้ว')}
  </span>
- {room.data.availableRooms > 0 && (
+ {isAdmin && room.data.availableRooms > 0 && (
  <span style={{
  fontSize: '1.25rem',
  fontWeight: 900,
@@ -121,11 +121,13 @@ export const DailyRoomCard: React.FC<DailyRoomCardProps> = ({
  )}
  </div>
 
+ {isAdmin && (
  <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.78rem', color: '#475569', marginTop: '2px' }}>
  <span>{t.totalRoomsLabel || 'ทั้งหมด:'} <strong>{room.data.totalRooms}</strong> {t.roomsUnit || 'ห้อง'}</span>
  <span>{t.occupiedRoomsLabel || 'เต็มแล้ว:'} <strong>{room.data.occupiedRooms}</strong> {t.roomsUnit || 'ห้อง'}</span>
  <span>{t.availableRoomsLabel || 'เหลือว่าง:'} <strong>{room.data.availableRooms}</strong> {t.roomsUnit || 'ห้อง'}</span>
  </div>
+ )}
  </div>
 
  <div className="room-actions">
@@ -261,7 +263,7 @@ export const MonthlyRoomCard: React.FC<MonthlyRoomCardProps> = ({
  }}>
  {hasAvailable ? (language === 'en' ? 'Ready' : language === 'cn' ? '随时可入住' : language === 'mm' ? 'အသင့်နေနိုင်သည်' : 'สถานะ: ว่าง') : (language === 'en' ? 'Full (Occupied)' : language === 'cn' ? '已满 (Occupied)' : language === 'mm' ? 'ပြည့်ပြီး' : 'สถานะ: เต็มแล้ว')}
  </span>
- {hasAvailable && (
+ {isAdmin && hasAvailable && (
  <span style={{
  fontSize: '1.25rem',
  fontWeight: 900,

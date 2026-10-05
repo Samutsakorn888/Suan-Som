@@ -358,7 +358,7 @@ export const RoomTypes: React.FC<RoomTypesProps> = ({
  </div>
  </div>
 
- <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+ {isAdmin && (<div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
  <div style={{ backgroundColor: 'rgba(255,255,255,0.18)', padding: '6px 14px', borderRadius: '8px', fontSize: '0.88rem', fontWeight: 'bold' }}>
  {t.totalRoomsLabel || 'ทั้งหมด:'} <strong>{totalDailyRoomsCount}</strong> {t.roomsUnit || 'ห้อง'}
  </div>
@@ -368,7 +368,7 @@ export const RoomTypes: React.FC<RoomTypesProps> = ({
  <div style={{ backgroundColor: 'rgba(34, 197, 94, 0.3)', padding: '6px 14px', borderRadius: '8px', fontSize: '0.88rem', fontWeight: 'bold' }}>
  {t.availableRoomsLabel || 'เหลือว่าง:'} <strong>{totalDailyAvailableCount}</strong> {t.roomsUnit || 'ห้อง'}
  </div>
- </div>
+ </div>)}
  </div>
 
  <div className="rooms-grid">
