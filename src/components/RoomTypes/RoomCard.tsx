@@ -283,7 +283,8 @@ export const MonthlyRoomCard: React.FC<MonthlyRoomCardProps> = ({
  )}
  </div>
 
- {hasAvailable ? (
+ {isAdmin && (
+ hasAvailable ? (
  <div style={{ fontSize: '0.82rem', color: '#1e293b', marginTop: '4px' }}>
  <strong>{language === 'en' ? 'Vacant Rooms:' : language === 'cn' ? '可用房号:' : language === 'mm' ? 'လစ်လပ်ခန်းများ:' : 'เลขห้องว่าง:'}</strong>{' '}
  {room.availableRoomsList.map((roomNo: string, i: number) => (
@@ -306,6 +307,7 @@ export const MonthlyRoomCard: React.FC<MonthlyRoomCardProps> = ({
  <div style={{ fontSize: '0.78rem', color: '#991b1b', marginTop: '2px' }}>
  {language === 'en' ? 'Currently full for this type (Inquire for queue)' : language === 'cn' ? '目前该房型已满 (可咨询排队)' : language === 'mm' ? 'လက်ရှိတွင် ဤအခန်းပြည့်နေပါသည်' : 'ปัจจุบันไม่มีห้องว่างในโซนนี้ (สอบถามคิวล่วงหน้า)'}
  </div>
+ )
  )}
  </div>
 
