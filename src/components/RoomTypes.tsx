@@ -565,9 +565,7 @@ export const RoomTypes: React.FC<RoomTypesProps> = ({
  <h4 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 'bold', color: '#ffffff' }}>
  {t.monthlyOverviewTitle || 'รูปแบบห้องพักรายเดือน'}
  </h4>
- <span style={{ fontSize: '0.82rem', opacity: 0.9 }}>
- {t.monthlyOverviewSub || 'เช็คเลขห้องที่ว่างพร้อมเข้าอยู่ได้ทันที อัตราค่าเช่า และเงินมัดจำแรกเข้า'}
- </span>
+ 
  </div>
  </div>
 
