@@ -727,26 +727,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
  </div>
 
  {/* Signature & Issuer Seal */}
- <div className="formal-signature-bar"style={{ justifyContent: 'space-between', alignItems: 'flex-end' }}>
- <div className="no-print"style={{ flex: 1, paddingRight: '20px', color: '#e11d48', fontSize: '0.85rem', fontWeight: 600, lineHeight: 1.4 }}>
+ <div className="formal-signature-bar"style={{ justifyContent: 'center' }}>
+ <div className="no-print"style={{ color: '#e11d48', fontSize: '0.85rem', fontWeight: 600, lineHeight: 1.4, textAlign: 'center' }}>
  * รบกวนตรวจสอบข้อมูลลูกค้าให้ถูกต้องและกด"บันทึกเอกสาร"ก่อนส่งเข้าไลน์
- </div>
- <div className="signature-col">
- <div className="stamp-seal-badge">
- <span>VERIFIED DOCUMENT</span>
- <strong>แอทสมุทรสาคร (สวนส้ม)</strong>
- </div>
- <div className="sig-line-container"style={{ position: 'relative', minHeight: '52px', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center' }}>
- <img
- src="/images/signature_thitaree.png"
- alt="ลายเซ็น นางสาวฐิตารีย์ ธวัชเลิศวงศ์"
- style={{ height: '48px', objectFit: 'contain', marginBottom: '-14px', zIndex: 2 }}
- />
- <div className="sig-line"style={{ width: '100%', margin: 0 }}></div>
- </div>
- <p style={{ margin: '6px 0 2px 0', fontSize: '0.85rem' }}><strong>(นางสาวฐิตารีย์ ธวัชเลิศวงศ์)</strong></p>
- <p style={{ margin: 0 }}><strong>ผู้ออกใบเสนอราคา / ผู้รับเงิน</strong></p>
- <p style={{ fontSize: '0.78rem', color: '#64748b', margin: 0 }}>สำนักงาน แอทสมุทรสาคร สวนส้ม</p>
  </div>
  </div>
  </>
