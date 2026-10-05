@@ -77,6 +77,7 @@ export const DailyRoomCard: React.FC<DailyRoomCardProps> = ({
  </div>
 
  {/* Room Status Box */}
+ {isAdmin && (
  <div 
  onClick={() => onToggleAvailability(room, 'daily')}
  style={{
@@ -131,6 +132,7 @@ export const DailyRoomCard: React.FC<DailyRoomCardProps> = ({
  </div>
  )}
  </div>
+ )}
 
  <div className="room-actions">
  <button
@@ -237,6 +239,7 @@ export const MonthlyRoomCard: React.FC<MonthlyRoomCardProps> = ({
  </div>
 
  {/* Monthly Room Availability Status Box */}
+ {isAdmin && (
  <div 
  onClick={() => onToggleAvailability(room, 'monthly')}
  style={{
@@ -310,6 +313,7 @@ export const MonthlyRoomCard: React.FC<MonthlyRoomCardProps> = ({
  )
  )}
  </div>
+ )}
 
  <div className="room-actions"style={{ marginTop: '16px', display: 'flex', gap: '8px' }}>
  <button
