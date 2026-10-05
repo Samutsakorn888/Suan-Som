@@ -41,11 +41,14 @@ export const Hero: React.FC<HeroProps> = ({
         } else {
             const element = document.getElementById('rooms');
             if (element) {
-                const offset = 70; // Navbar height
+                const navbarElement = document.querySelector('.navbar-header');
+                const offset = navbarElement ? navbarElement.getBoundingClientRect().height : 70;
+                
+                const targetElement = element.querySelector('h2, h3, .section-title') || element;
                 const bodyRect = document.body.getBoundingClientRect().top;
-                const elementRect = element.getBoundingClientRect().top;
-                const elementPosition = elementRect - bodyRect;
-                const offsetPosition = elementPosition - offset;
+                const targetRect = targetElement.getBoundingClientRect().top;
+                const elementPosition = targetRect - bodyRect;
+                const offsetPosition = elementPosition - offset - 24;
 
                 window.scrollTo({
                     top: offsetPosition,
