@@ -58,9 +58,9 @@ export const PromptPayModal: React.FC<PromptPayModalProps> = ({ isOpen, onClose,
  </div>
 
   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px', marginBottom: '10px' }}>
-    <img src="/images/promptpay_qr.png" alt="PromptPay QR Code" style={{ width: '200px', height: '200px', objectFit: 'contain', border: '2px solid #e8bc9f', borderRadius: '12px', padding: '8px', backgroundColor: '#fff', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }} />
+    <img src="/images/promptpay_qr_new.png" alt="PromptPay QR Code" style={{ width: '200px', height: '200px', objectFit: 'contain', border: '2px solid #e8bc9f', borderRadius: '12px', padding: '8px', backgroundColor: '#fff', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }} />
     <span style={{ fontSize: '0.95rem', color: '#c56024', marginTop: '12px', fontWeight: 'bold' }}>สแกน QR Code เพื่อโอนเงิน</span>
-    <a href="/images/promptpay_qr.png" download="promptpay_qr.png" style={{ 
+    <a href="/images/promptpay_qr_new.png" download="promptpay_qr.png" style={{ 
       marginTop: '12px', 
       padding: '8px 16px', 
       fontSize: '0.9rem', 
