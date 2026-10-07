@@ -78,7 +78,7 @@ export const getDefaultSiteData = (): CustomSiteData => {
  totalRooms: 1,
  occupiedRooms: 0,
  features: [' พัดลม', '️ ฟูกที่นอน', ' ฟรี Wi-Fi', ' ห้องน้ำในตัว'],
- image: '/images/fan_futon.png'
+ image: ''
  },
  {
  key: 'single',
@@ -89,7 +89,7 @@ export const getDefaultSiteData = (): CustomSiteData => {
  totalRooms: 6,
  occupiedRooms: 4,
  features: [...th.singleRoom.features],
- image: '/images/single.jpg?v=2'
+ image: ''
  },
  {
  key: 'twin',
@@ -100,7 +100,7 @@ export const getDefaultSiteData = (): CustomSiteData => {
  totalRooms: 3,
  occupiedRooms: 2,
  features: [...th.twinRoom.features],
- image: '/images/twin.png'
+ image: ''
  },
  {
  key: 'extra',
@@ -111,7 +111,7 @@ export const getDefaultSiteData = (): CustomSiteData => {
  totalRooms: 3,
  occupiedRooms: 1,
  features: [...th.extraRoom.features],
- image: '/images/extra.png'
+ image: ''
  },
  {
  key: 'suite',
@@ -122,7 +122,7 @@ export const getDefaultSiteData = (): CustomSiteData => {
  totalRooms: 1,
  occupiedRooms: 0,
  features: [' 2 ห้องเชื่อมกัน', '️ เครื่องปรับอากาศ', '️ เฟอร์นิเจอร์ครบชุด', '️ ชุดฟูกที่นอน', ' ฟรี Wi-Fi'],
- image: '/images/extra.png'
+ image: ''
  }
  ],
  monthlyRooms: th.monthlyRooms.map((r, idx) => ({
@@ -133,7 +133,7 @@ export const getDefaultSiteData = (): CustomSiteData => {
  deposit: r.deposit,
  availableRoomsList: r.availableRoomsList ? [...r.availableRoomsList] : [],
  features: [...r.features],
- image: r.name.toLowerCase().includes('ไม่มีแอร์') ? '' : (r.name.toLowerCase().includes('คู่') || r.name.toLowerCase().includes('twin') ? '/images/twin.png' : idx > 5 ? '/images/extra.png' : '/images/single.png')
+ image: ''
  })),
  rulesList: [...th.rulesList],
  rulesNotice: th.rulesNotice,
@@ -267,7 +267,7 @@ export const loadSiteData = (): CustomSiteData => {
  ...r,
  totalRooms: r.totalRooms !== undefined ? Number(r.totalRooms) : getDefaultRoomTotal(r.key, r.name),
  occupiedRooms: r.occupiedRooms !== undefined ? Number(r.occupiedRooms) : 0,
- image: (r.key === 'single' || (r.image && r.image.includes('single'))) ? '/images/single.jpg?v=2' : r.image
+ image: r.image
  }));
  const defaultMonthly = defaultData.monthlyRooms || [];
  const monthlyRooms = (parsed.monthlyRooms || defaultMonthly).map((r: any) => {
