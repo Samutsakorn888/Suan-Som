@@ -4690,7 +4690,7 @@ button {
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .calculator-section .container {
     padding: 0 !important;
   }
