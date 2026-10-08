@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { RoomTypes } from './components/RoomTypes';
 import { Facilities } from './components/Facilities';
 import { NearbyPlaces } from './components/NearbyPlaces';
+import { SecuritySystem } from './components/SecuritySystem';
 import { Rules } from './components/Rules';
 import { FloatingActions } from './components/FloatingActions';
 import { LineModal } from './components/LineModal';
@@ -392,6 +393,7 @@ function App() {
         <Facilities t={t} />
 
         <NearbyPlaces t={t} />
+        <SecuritySystem t={t} />
 
         <Rules
           t={t}
