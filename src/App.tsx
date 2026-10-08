@@ -5,7 +5,7 @@ import { RoomTypes } from './components/RoomTypes';
 import { Facilities } from './components/Facilities';
 import { NearbyPlaces } from './components/NearbyPlaces';
 import { Rules } from './components/Rules';
-
+import { FloatingActions } from './components/FloatingActions';
 import { LineModal } from './components/LineModal';
 import { Footer } from './components/Footer';
 import { AdminLogin } from './components/admin/AdminLogin';
@@ -398,7 +398,7 @@ function App() {
         onEditSettings={() => handleOpenEditSection('settings')}
       />
 
-
+      <FloatingActions onLineClick={handleOpenLineModal} />
 
 
       <LineModal

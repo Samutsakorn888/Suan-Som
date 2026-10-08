@@ -3468,6 +3468,9 @@ button {
   color: var(--text-color);
   outline: none;
   transition: border-color 0.2s;
+  width: 100%;
+  max-width: 100%;
+  text-overflow: ellipsis;
 }
 
 .calc-select:focus {
@@ -4693,6 +4696,8 @@ button {
 @media (max-width: 768px) {
   .calculator-section .container {
     padding: 0 !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
   }
   .calculator-section {
     padding: 30px 0 !important;
@@ -4713,9 +4718,12 @@ button {
   }
   .calculator-body {
     grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
   }
   .calc-label-row {
     flex-wrap: wrap !important;
+    max-width: 100% !important;
   }
   .calculator-title, .section-title, .results-title {
     font-size: 1.4rem !important;
@@ -4738,32 +4746,20 @@ button {
   .calculator-results {
     padding: 24px 16px !important;
   }
-  .calc-select {
-    width: 100% !important;
-    max-width: 100% !important;
-    text-overflow: ellipsis;
-  }
   .breakdown-item {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
+    flex-wrap: wrap !important;
     font-size: 0.9rem !important;
-    gap: 4px;
-    margin-bottom: 12px;
+    word-break: break-word !important;
+    white-space: normal !important;
   }
   .breakdown-item span {
     word-break: break-word !important;
     white-space: normal !important;
-    width: 100%;
-  }
-  .breakdown-item span:last-child {
-    font-weight: 600;
-    color: #ffffff;
+    flex: 1 1 auto;
+    min-width: 0;
   }
   .total-row {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
+    flex-wrap: wrap !important;
     gap: 8px;
   }
   .total-label {

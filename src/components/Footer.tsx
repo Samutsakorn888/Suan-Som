@@ -43,6 +43,16 @@ export const Footer: React.FC<FooterProps> = ({
  <span className="footer-contact-label">{t.addressLabel}</span>
  <span className="footer-contact-val">{t.addressVal}</span>
  </div>
+ 
+ <div className="footer-contact-item">
+ <span className="footer-contact-label">{t.phoneLabel}</span>
+ <span className="footer-contact-val">{phoneVal}</span>
+ </div>
+ 
+ <div className="footer-contact-item">
+ <span className="footer-contact-label">Line Official</span>
+ <span className="footer-contact-val">{lineId}</span>
+ </div>
 
  <div className="footer-contact-item">
  <span className="footer-contact-label">Facebook Page</span>
