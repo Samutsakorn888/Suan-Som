@@ -4707,6 +4707,30 @@ button {
   .calc-label-row {
     flex-wrap: wrap !important;
   }
+  .calculator-title, .section-title, .summary-title {
+    font-size: 1.5rem !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    line-height: 1.3 !important;
+    white-space: normal !important;
+  }
+  .calculator-subtitle, .section-subtitle, .calc-label {
+    font-size: 0.95rem !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+  }
+  .calc-range-labels span {
+    font-size: 0.65rem !important;
+    text-align: center;
+    word-break: break-word;
+    white-space: normal;
+  }
+  .summary-row, .summary-total-row {
+    flex-wrap: wrap;
+  }
+  .summary-total-row span {
+    font-size: 1.2rem !important;
+  }
 }
 
 /* Google Translate Customization */
