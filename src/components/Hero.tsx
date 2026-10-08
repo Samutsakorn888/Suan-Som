@@ -128,6 +128,10 @@ export const Hero: React.FC<HeroProps> = ({
                             <span className="pill-icon"></span>
                             <span>{language === 'en' ? 'Indoor Parking' : language === 'cn' ? '室内停车场' : language === 'mm' ? 'မိုးလုံလေလုံကားပါကင်' : 'ที่จอดรถในอาคาร'}</span>
                         </div>
+                        <div className="hero-pill-item">
+                            <span className="pill-icon"></span>
+                            <span>{language === 'en' ? 'Passenger Elevator' : language === 'cn' ? '客用电梯' : language === 'mm' ? 'ခရီးသည်တင် ဓာတ်လှေကား' : 'ลิฟต์โดยสาร'}</span>
+                        </div>
                     </div>
 
                     {/* Hotel Booking & Action Card */}
