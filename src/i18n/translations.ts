@@ -388,7 +388,7 @@ export const translations: Record<Language, Translations> = {
         facilitiesList: [
             { icon: "", title: "อินเทอร์เน็ตความเร็วสูง (Free Wi-Fi)", desc: "สัญญาณครอบคลุมทุกชั้นใช้งานฟรีตลอด 24 ชั่วโมง" },
             { icon: "️", title: "ระบบรักษาความปลอดภัย 24 ชม.", desc: "เข้า-ออกด้วยระบบคีย์การ์ด พร้อมกล้อง CCTV ทุกชั้น" },
-            { icon: "🅿️", title: "ที่จอดรถเป็นสัดส่วน", desc: "มีพื้นที่จอดรถยนต์และรถมอเตอร์ไซค์สะดวก ปลอดภัย" },
+            { icon: "🅿️", title: "ที่จอดรถบนอาคาร", desc: "มีพื้นที่จอดรถยนต์และรถมอเตอร์ไซค์สะดวก ปลอดภัย" },
             { icon: "️", title: "เครื่องปรับอากาศ & เฟอร์นิเจอร์ครบ", desc: "พร้อมเข้าอยู่อาศัยทันที" },
             { icon: "", title: "จุดบริการเครื่องซักผ้า", desc: "มีจุดบริการเครื่องซักผ้าชั้น5ถึงชั้น8" },
             { icon: "", title: "ทำเลนิคมอุตสาหกรรมสมุทรสาคร", desc: "การเดินทางสะดวกสบาย" }
@@ -399,12 +399,12 @@ export const translations: Record<Language, Translations> = {
             { icon: "", title: "นิคมอุตสาหกรรมสมุทรสาคร", distance: "5นาที", desc: "มีโรงงานมากกว่า100แห่ง" },
             { icon: "", title: "ตลาดนัดสุขมานิคม15", distance: "3นาที", desc: "ตลาดนัดชุมชน" },
             { icon: "️", title: "ตลาดนัดสวนส้ม", distance: "3นาที", desc: "แหล่งรวมอาหารและของกินมากมาย" },
-            { icon: "", title: "ซีเจ เซเว่น", distance: "2นาที", desc: "ร้านสะดวกซื้อมากมาย" }
+            { icon: "", title: "ซีเจ เซเว่น", distance: "2นาที", desc: "ร้านสะดวกซื้อหลายแห่ง" }
             ,
-            { icon: "📍", title: "เซ็นทรัลมหาชัย", distance: "15นาที", desc: "ห้างสรรพสินค้าใหญ่" },
+            { icon: "📍", title: "เซ็นทรัลมหาชัย", distance: "15นาที", desc: "" },
             { icon: "📍", title: "สถานีรถไฟมหาชัย", distance: "20นาที", desc: "" },
             { icon: "📍", title: "Big C มหาชัย", distance: "15นาที", desc: "" },
-            { icon: "📍", title: "TESCO Lotus", distance: "15นาที", desc: "" },
+            { icon: "📍", title: "TESCO Lotus", distance: "20นาที", desc: "" },
             { icon: "📍", title: "โฮมโปรมหาชัย", distance: "15นาที", desc: "" }
         ],
         securityTitle: "ระบบรักษาความปลอดภัย",
