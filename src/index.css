@@ -4738,20 +4738,32 @@ button {
   .calculator-results {
     padding: 24px 16px !important;
   }
+  .calc-select {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-overflow: ellipsis;
+  }
   .breakdown-item {
-    flex-wrap: wrap !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
     font-size: 0.9rem !important;
-    word-break: break-word !important;
-    white-space: normal !important;
+    gap: 4px;
+    margin-bottom: 12px;
   }
   .breakdown-item span {
     word-break: break-word !important;
     white-space: normal !important;
-    flex: 1 1 auto;
-    min-width: 0;
+    width: 100%;
+  }
+  .breakdown-item span:last-child {
+    font-weight: 600;
+    color: #ffffff;
   }
   .total-row {
-    flex-wrap: wrap !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
     gap: 8px;
   }
   .total-label {
