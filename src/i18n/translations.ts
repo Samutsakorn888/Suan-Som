@@ -403,18 +403,18 @@ export const translations: Record<Language, Translations> = {
             ,
             { icon: "📍", title: "เซ็นทรัลมหาชัย", distance: "15นาที", desc: "ห้างสรรพสินค้าใหญ่" },
             { icon: "📍", title: "สถานีรถไฟมหาชัย", distance: "20นาที", desc: "" },
-            { icon: "📍", title: "Big C มหาชัย", distance: "15", desc: "" },
-            { icon: "📍", title: "TESCO Lotus", distance: "15", desc: "" },
-            { icon: "📍", title: "โฮมโปรมหาชัย", distance: "15", desc: "" }
+            { icon: "📍", title: "Big C มหาชัย", distance: "15นาที", desc: "" },
+            { icon: "📍", title: "TESCO Lotus", distance: "15นาที", desc: "" },
+            { icon: "📍", title: "โฮมโปรมหาชัย", distance: "15นาที", desc: "" }
         ],
         securityTitle: "ระบบรักษาความปลอดภัย",
         securitySubtitle: "เพื่อความอุ่นใจในการพักอาศัย",
         securityList: [
-            { badge: "-", title: "ตำรวจรักษาการ", desc: "ตลอด24ชม." },
-            { badge: "-", title: "ประตูระบบคีย์การ์ด", desc: "เข้า-ออกประตู ด้วยคีย์การ์ด" },
-            { badge: "-", title: "heat detector/smoke detector", desc: "ตรวจจับความร้อน/ควัน" },
-            { badge: "-", title: "ตู้ดับเพลิงทุกชั้น/เสาล่อฟ้า", desc: "เพื่อความปลอดภัยสูงสุด" },
-            { badge: "-", title: "กล้องวงจรปิดCCTV", desc: "ครบทุกมุม 24ชม." }
+            { badge: "ตำรวจรักษาการ", title: "ตลอด24ชม.", desc: "" },
+            { badge: "ประตูระบบคีย์การ์ด", title: "เข้า-ออกประตู ด้วยคีย์การ์ด", desc: "" },
+            { badge: "heat detector/smoke detector", title: "ตรวจจับความร้อน/ควัน", desc: "" },
+            { badge: "ตู้ดับเพลิงทุกชั้น/เสาล่อฟ้า", title: "เพื่อความปลอดภัยสูงสุด", desc: "" },
+            { badge: "กล้องวงจรปิดCCTV", title: "ครบทุกมุม 24ชม.", desc: "" }
         ],
         faqTitle: "คำถามที่พบบ่อย (FAQ)",
         faqSubtitle: "ไขข้อข้องใจเกี่ยวกับการเข้าพักและการเช่าห้องพักรายวัน / รายเดือน",
