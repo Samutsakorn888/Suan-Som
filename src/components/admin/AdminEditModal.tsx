@@ -98,68 +98,109 @@ export const AdminEditModal: React.FC<AdminEditModalProps> = ({
  onClose();
  };
 
- // Image Compression Helper
- const compressImage = (file: File, callback: (base64: string) => void) => {
- const reader = new FileReader();
- reader.onload = (e) => {
- const img = new Image();
- img.onload = () => {
- const canvas = document.createElement('canvas');
- let width = img.width;
- let height = img.height;
- const max_size = 800;
+  // Image Compression Helper (Returns Blob for Supabase Storage)
+  const compressImage = (file: File, callback: (blob: Blob | null) => void) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let width = img.width;
+        let height = img.height;
+        const max_size = 800;
 
- if (width > height) {
- if (width > max_size) {
- height *= max_size / width;
- width = max_size;
- }
- } else {
- if (height > max_size) {
- width *= max_size / height;
- height = max_size;
- }
- }
- canvas.width = width;
- canvas.height = height;
- const ctx = canvas.getContext('2d');
- ctx?.drawImage(img, 0, 0, width, height);
- callback(canvas.toDataURL('image/jpeg', 0.6));
- };
- img.src = e.target?.result as string;
- };
- reader.readAsDataURL(file);
- };
+        if (width > height) {
+          if (width > max_size) {
+            height *= max_size / width;
+            width = max_size;
+          }
+        } else {
+          if (height > max_size) {
+            width *= max_size / height;
+            height = max_size;
+          }
+        }
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx?.drawImage(img, 0, 0, width, height);
+        canvas.toBlob((blob) => {
+          callback(blob);
+        }, 'image/jpeg', 0.6);
+      };
+      img.src = e.target?.result as string;
+    };
+    reader.readAsDataURL(file);
+  };
 
- // Image Upload handler for Room
- const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
- const file = e.target.files?.[0];
- if (file && editRoom) {
- compressImage(file, (base64) => {
- setEditRoom({ ...editRoom, image: base64 });
- });
- }
- };
+  const deleteImageFromStorage = async (url: string) => {
+    if (!url || !url.includes('supabase.co')) return;
+    try {
+      const parts = url.split('/');
+      const fileName = parts[parts.length - 1];
+      if (fileName) {
+        await supabase.storage.from('room-images').remove([fileName]);
+        console.log('Deleted from storage:', fileName);
+      }
+    } catch (err) {
+      console.error('Failed to delete image from storage', err);
+    }
+  };
 
- const handleGalleryUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
- const files = e.target.files;
- if (files && files.length > 0 && editRoom) {
- const newImages = Array.from(files);
- let currentImages = [...(editRoom.images || [])];
- 
- let loadedCount = 0;
- newImages.forEach(file => {
- compressImage(file, (base64) => {
- currentImages.push(base64);
- loadedCount++;
- if (loadedCount === newImages.length) {
- setEditRoom({ ...editRoom, images: currentImages });
- }
- });
- });
- }
- };
+  // Image Upload handler for Room
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file && editRoom) {
+      compressImage(file, async (blob) => {
+        if (!blob) return;
+        try {
+          const fileName = `main_${Date.now()}_${Math.random().toString(36).substring(7)}.jpg`;
+          const { error } = await supabase.storage.from('room-images').upload(fileName, blob, { contentType: 'image/jpeg' });
+          if (error) throw error;
+          
+          const { data } = supabase.storage.from('room-images').getPublicUrl(fileName);
+          setEditRoom((prev: any) => {
+            if (prev.image) deleteImageFromStorage(prev.image);
+            return { ...prev, image: data.publicUrl };
+          });
+        } catch (err) {
+          console.error('Error uploading image:', err);
+          alert('เกิดข้อผิดพลาดในการอัปโหลดรูปลง Storage (โปรดเช็คว่าตั้ง Storage เป็น Public และเปิด Policies หรือยัง)');
+        }
+      });
+    }
+  };
 
+  const handleGalleryUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0 && editRoom) {
+      const newImages = Array.from(files);
+      
+      const uploadPromises = newImages.map(file => {
+        return new Promise<string>((resolve) => {
+          compressImage(file, async (blob) => {
+            if (!blob) { resolve(''); return; }
+            try {
+              const fileName = `gallery_${Date.now()}_${Math.random().toString(36).substring(7)}.jpg`;
+              const { error } = await supabase.storage.from('room-images').upload(fileName, blob, { contentType: 'image/jpeg' });
+              if (error) throw error;
+              
+              const { data } = supabase.storage.from('room-images').getPublicUrl(fileName);
+              resolve(data.publicUrl);
+            } catch (err) {
+              console.error('Error uploading gallery image:', err);
+              resolve('');
+            }
+          });
+        });
+      });
+
+      const uploadedUrls = (await Promise.all(uploadPromises)).filter(url => url !== '');
+      if (uploadedUrls.length > 0) {
+        setEditRoom((prev: any) => ({ ...prev, images: [...(prev.images || []), ...uploadedUrls] }));
+      }
+    }
+  };
  const handleToggleFeature = (feature: string) => {
  if (!editRoom) return;
  const currentFeatures: string[] = editRoom.features || [];
@@ -264,21 +305,31 @@ export const AdminEditModal: React.FC<AdminEditModalProps> = ({
  };
 
  const handleDeleteRoom = async () => {
- if (!window.confirm('คุณแน่ใจหรือไม่ว่าต้องการลบประเภทห้องนี้?')) return;
- const isDaily = selectedRoomTab === 'daily';
- const targetList = isDaily ? [...(localData.dailyRooms || [])] : [...(localData.monthlyRooms || [])];
- const roomToDelete = targetList[selectedRoomIdx];
+  if (!window.confirm('คุณแน่ใจหรือไม่ว่าต้องการลบประเภทห้องนี้?')) return;
+  const isDaily = selectedRoomTab === 'daily';
+  const targetList = isDaily ? [...(localData.dailyRooms || [])] : [...(localData.monthlyRooms || [])];
+  const roomToDelete = targetList[selectedRoomIdx];
 
- try {
- const roomId = isDaily ? roomToDelete.key : roomToDelete.id;
- const isNewRoom = String(roomId).startsWith('custom_') || typeof roomId === 'number';
+  try {
+  const roomId = isDaily ? roomToDelete.key : roomToDelete.id;
+  const isNewRoom = String(roomId).startsWith('custom_') || typeof roomId === 'number';
 
- if (!isNewRoom) {
- const { error } = await supabase.from('room').delete().eq('id', roomId);
- if (error) throw error;
- }
+  if (!isNewRoom) {
+  const { error } = await supabase.from('room').delete().eq('id', roomId);
+  if (error) throw error;
+  }
 
- targetList.splice(selectedRoomIdx, 1);
+  // Delete images from storage
+  if (roomToDelete.image) {
+    await deleteImageFromStorage(roomToDelete.image);
+  }
+  if (roomToDelete.images && roomToDelete.images.length > 0) {
+    for (const imgUrl of roomToDelete.images) {
+      await deleteImageFromStorage(imgUrl);
+    }
+  }
+
+  targetList.splice(selectedRoomIdx, 1);
  const updated = isDaily
  ? { ...localData, dailyRooms: targetList }
  : { ...localData, monthlyRooms: targetList };
@@ -589,10 +640,14 @@ export const AdminEditModal: React.FC<AdminEditModalProps> = ({
  <button
  type="button"
  onClick={() => {
- const newArr = [...editRoom.images];
- newArr.splice(idx, 1);
- setEditRoom({ ...editRoom, images: newArr });
- }}
+     const imgUrlToRemove = editRoom.images[idx];
+     if (imgUrlToRemove) {
+       deleteImageFromStorage(imgUrlToRemove);
+     }
+     const newArr = [...editRoom.images];
+     newArr.splice(idx, 1);
+     setEditRoom({ ...editRoom, images: newArr });
+   }}
  style={{ position: 'absolute', top: '-6px', right: '-6px', background: '#e11d48', color: 'white', border: 'none', borderRadius: '50%', width: '22px', height: '22px', fontSize: '12px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 0 }}
  >×</button>
  </div>

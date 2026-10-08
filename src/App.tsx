@@ -5,7 +5,6 @@ import { RoomTypes } from './components/RoomTypes';
 import { Facilities } from './components/Facilities';
 import { NearbyPlaces } from './components/NearbyPlaces';
 import { Rules } from './components/Rules';
-import { Faq } from './components/Faq';
 import { FloatingActions } from './components/FloatingActions';
 import { LineModal } from './components/LineModal';
 import { Footer } from './components/Footer';
@@ -182,7 +181,7 @@ function App() {
 
   // Track active section on scroll using Intersection Observer
   useEffect(() => {
-    const sections = ['home', 'rooms', 'facilities', 'nearby', 'rules', 'faq'];
+    const sections = ['home', 'rooms', 'facilities', 'nearby', 'rules'];
     const observers = sections.map(id => {
       const el = document.getElementById(id);
       if (!el) return null;
@@ -387,7 +386,7 @@ function App() {
           onEditRules={() => handleOpenEditSection('rules')}
         />
 
-        <Faq t={t} />
+
       </main>
 
       <Footer

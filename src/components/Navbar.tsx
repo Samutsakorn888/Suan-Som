@@ -116,16 +116,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               {t.navRules}
             </a>
           </li>
-          <li>
-            <a
-              href="#faq"
-              className={`navbar-link ${activeSection === 'faq' ? 'active' : ''}`}
-              onClick={(e) => { e.preventDefault(); handleNavClick('faq'); }}
-            >
-              {t.navFaq}
-            </a>
-          </li>
         </ul>
+
 
         {/* 3. Right: Language Switcher */}
         <div id="google_translate_element" className="lang-switcher" style={{ minHeight: '36px', display: 'flex', alignItems: 'center' }}></div>

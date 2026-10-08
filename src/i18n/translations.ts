@@ -364,7 +364,7 @@ export const translations: Record<Language, Translations> = {
             "ชำระแล้วส่งสลิป พร้อมถ่ายบัตรประชาชนและแจ้งเลขห้องที่เข้าพัก LINE ID: 0990954541",
             "ให้พนักงานตรวจสอบความถูกต้องและรับกุญแจห้องพัก",
             "ลูกค้าต้องพกคีย์การ์ดเพื่อเปิดประตู",
-            "Wi-Fi: กรุณาเลือก User ตามชั้นที่ท่านพัก (รหัส Wi-Fi: 123456789)"
+            "Wi-Fi: กรุณาเลือก User ตามชั้นที่ท่านพัก"
         ],
         checkOutTitle: "วิธีการเช็คเอ้าท์ (Daily Check-out)",
         checkOutSteps: [
@@ -715,7 +715,7 @@ export const translations: Record<Language, Translations> = {
             "Send payment slip, ID card photo, and room number via LINE ID: 0990954541",
             "Staff will verify details and hand over the room keys",
             "Please carry your keycard to unlock the door",
-            "Wi-Fi: Please select User according to your floor (Wi-Fi password: 123456789)"
+            "Wi-Fi: Please select User according to your floor"
         ],
         checkOutTitle: "Daily Check-out Process",
         checkOutSteps: [
@@ -1037,7 +1037,7 @@ export const translations: Record<Language, Translations> = {
             "付款后将凭证、身份证件照片及房间号发送至 LINE ID: 0990954541",
             "工作人员核对无误后发放房间钥匙",
             "请随身携带感应卡开门",
-            "Wi-Fi: 请根据所在楼层选择对应用户名 (Wi-Fi 密码: 123456789)"
+            "Wi-Fi: 请根据所在楼层选择对应用户名"
         ],
         checkOutTitle: "日租退房流程 (Daily Check-out)",
         checkOutSteps: [
@@ -1359,7 +1359,7 @@ export const translations: Record<Language, Translations> = {
             "ငွေလွှဲပြီးပါက ပြေစာ၊ မှတ်ပုံတင်ဓာတ်ပုံနှင့် အခန်းနံပါတ်ကို LINE ID: 0990954541 သို့ ပို့ပါ",
             "ဝန်ထမ်းမှ စစ်ဆေးပြီးပါက အခန်းသော့ ထုတ်ယူပါ",
             "တံခါးဖွင့်ရန် ကီးကဒ်ကို ယူဆောင်ထားပါ",
-            "Wi-Fi: သင်တည်းခိုသည့် အထပ်အလိုက် User ကိုရွေးချယ်ပါ (Wi-Fi Password: 123456789)"
+            "Wi-Fi: သင်တည်းခိုသည့် အထပ်အလိုက် User ကိုရွေးချယ်ပါ"
         ],
         checkOutTitle: "နေ့စဉ် Check-out ပြုလုပ်ရန် အဆင့်များ",
         checkOutSteps: [
@@ -1649,7 +1649,7 @@ export const translations: Record<Language, Translations> = {
             "お支払い後、振り込み明細・身分証明書・部屋番号を LINE ID: 0990954541 へ送信してください",
             "スタッフが確認後、お部屋の鍵をお渡しします",
             "ドアの施錠・解錠にはキーカードを常時お持ちください",
-            "Wi-Fi: ご宿泊階のユーザーを選択してください (Wi-Fiパスワード: 123456789)"
+            "Wi-Fi: ご宿泊階のユーザーを選択してください"
         ],
         checkOutTitle: "デイリーチェックアウト手順",
         checkOutSteps: [
@@ -1834,7 +1834,7 @@ export const translations: Record<Language, Translations> = {
             "Отправьте квитанцию, фото паспорта и номер комнаты в LINE ID: 0990954541",
             "Персонал проверит данные и передаст вам ключи",
             "Носите ключ-карту с собой для доступа в здание",
-            "Wi-Fi: выберите сеть вашего этажа (пароль Wi-Fi: 123456789)"
+            "Wi-Fi: выберите сеть вашего этажа"
         ],
         checkOutTitle: "Выселение (Daily Check-out)",
         checkOutSteps: [

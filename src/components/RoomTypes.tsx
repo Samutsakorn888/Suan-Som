@@ -458,31 +458,6 @@ export const RoomTypes: React.FC<RoomTypesProps> = ({
  ))}
  </ol>
  </div>
-
- {/* Wi-Fi Info Box */}
- <div style={{
- backgroundColor: '#f7fafc',
- border: '1px solid #e2e8f0',
- borderRadius: '8px',
- padding: '12px 16px',
- marginTop: '20px',
- display: 'flex',
- alignItems: 'center',
- justifyContent: 'space-between',
- flexWrap: 'wrap',
- gap: '8px'
- }}>
- <div>
- <span style={{ fontWeight: 'bold' }}>{t.wifiTitle}:</span> <code style={{ backgroundColor: '#edf2f7', padding: '2px 8px', borderRadius: '4px', fontSize: '1.1rem', fontWeight: 'bold', color: '#2d3748' }}>{t.wifiPass}</code>
- </div>
- <button
- className="btn btn-outline"
- style={{ padding: '4px 10px', fontSize: '0.8rem' }}
- onClick={() => handleCopyText(t.wifiPass, 'รหัส Wi-Fi')}
- >
- คัดลอกรหัส Wi-Fi
- </button>
- </div>
  </div>
 
  {/* Check-out Card */}
