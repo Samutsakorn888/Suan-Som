@@ -6,10 +6,10 @@ interface PromptPayModalProps {
  onClose: () => void;
  t: Translations;
  language?: Language;
- lineId: string;
+ lineId?: string;
 }
 
-export const PromptPayModal: React.FC<PromptPayModalProps> = ({ isOpen, onClose, t, lineId }) => {
+export const PromptPayModal: React.FC<PromptPayModalProps> = ({ isOpen, onClose, t, lineId = '' }) => {
  const [copied, setCopied] = useState(false);
 
  if (!isOpen) return null;
