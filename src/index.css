@@ -4747,6 +4747,8 @@ button {
   .breakdown-item span {
     word-break: break-word !important;
     white-space: normal !important;
+    flex: 1 1 auto;
+    min-width: 0;
   }
   .total-row {
     flex-wrap: wrap !important;
