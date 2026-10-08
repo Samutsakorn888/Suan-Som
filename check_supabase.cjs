@@ -28,9 +28,9 @@ async function check() {
       if (r.image_url) {
         console.log(`Image URL length: ${r.image_url.length} chars`);
         if (r.image_url.length < 500) {
-           console.log(`Value: ${r.image_url}`);
+          console.log(`Value: ${r.image_url}`);
         } else {
-           console.log(`Value: (Likely Base64 string...)`);
+          console.log(`Value: (Likely Base64 string...)`);
         }
       } else {
         console.log('No image_url');
