@@ -358,10 +358,10 @@ export const translations: Record<Language, Translations> = {
         rulesNotice: "ฝ่าฝืนครั้งที่ 1 เตือนด้วยวาจา | ครั้งที่ 2 ปรับครั้งละ 2,000 บาท/ครั้ง",
         checkInTitle: "วิธีการเช็คอิน (Daily Check-in)",
         checkInSteps: [
-            "กรุณาแอด LINE ID: 0990954541",
+            "กรุณาแอด LINE ID: {lineId}",
             "สแกนจ่ายเงินผ่านเลขที่บัญชี 707-2-49085-6 ธนาคารกสิกรไทย ชื่อ นายกำธร เตชะเกษมสุข (ไม่รับเงินสด)",
             "ค่าที่พัก + เงินประกัน ห้องละ 500 บาท",
-            "ชำระแล้วส่งสลิป พร้อมถ่ายบัตรประชาชนและแจ้งเลขห้องที่เข้าพัก LINE ID: 0990954541",
+            "ชำระแล้วส่งสลิป พร้อมถ่ายบัตรประชาชนและแจ้งเลขห้องที่เข้าพัก LINE ID: {lineId}",
             "ให้พนักงานตรวจสอบความถูกต้องและรับกุญแจห้องพัก",
             "ลูกค้าต้องพกคีย์การ์ดเพื่อเปิดประตู",
             "Wi-Fi: กรุณาเลือก User ตามชั้นที่ท่านพัก"
@@ -370,7 +370,7 @@ export const translations: Record<Language, Translations> = {
         checkOutSteps: [
             "ลูกค้าปิดแอร์ ปิดไฟ ปิดประตู (ประตูไม่ต้องล็อก)",
             "นำกุญแจมาใส่ไว้ที่กล่องคืนกุญแจ พร้อมถ่ายรูปแจ้งใน LINE",
-            "แจ้งเลขบัญชีใน LINE 0990954541",
+            "แจ้งเลขบัญชีใน LINE {lineId}",
             "หลังจากแม่บ้านตรวจสอบห้องแล้วพบว่าเรียบร้อย ไม่มีอะไรเสียหาย ทางที่พักจะทำเรื่องคืนเงินประกันให้"
         ],
         bankAccountTitle: "เลขที่บัญชีชำระเงิน (ไม่รับเงินสด)",
@@ -380,7 +380,7 @@ export const translations: Record<Language, Translations> = {
         wifiTitle: "รหัส Wi-Fi",
         wifiPass: "123456789",
         lineModalTitle: "ติดต่อเราผ่าน Line Official",
-        lineModalDesc: "สแกนเพื่อติดต่อเรา หรือแอด ID: 0990954541",
+        lineModalDesc: "สแกนเพื่อติดต่อเรา หรือแอด ID: {lineId}",
         copyIdBtn: "คัดลอก ID Line",
         copiedAlert: "คัดลอก ID Line สำเร็จแล้ว!",
         facilitiesTitle: "สิ่งอำนวยความสะดวกส่วนกลาง",
@@ -544,7 +544,7 @@ export const translations: Record<Language, Translations> = {
         bankStepsTitle: "ขั้นตอนหลังชำระเงิน:",
         bankStep1: "ถ่ายรูป/เซฟสลิปโอนเงิน",
         bankStep2: "ถ่ายภาพบัตรประชาชนและแจ้งเลขห้องพัก",
-        bankStep3: "ส่งสลิปแจ้งยืนยันทาง LINE ID: 0990954541",
+        bankStep3: "ส่งสลิปแจ้งยืนยันทาง LINE ID: {lineId}",
     },
     en: {
         brand: "@samutsakorn suansom",
@@ -709,10 +709,10 @@ export const translations: Record<Language, Translations> = {
         rulesNotice: "First offense: Verbal warning | Second offense: Fine of 2,000 Baht per offense",
         checkInTitle: "Daily Check-in Process",
         checkInSteps: [
-            "Please add LINE ID: 0990954541",
+            "Please add LINE ID: {lineId}",
             "Scan/Transfer payment to Kasikornbank A/C: 707-2-49085-6 Name: Onanong Techakasemsook (No cash accepted)",
             "Room rate + Deposit 500 THB per room",
-            "Send payment slip, ID card photo, and room number via LINE ID: 0990954541",
+            "Send payment slip, ID card photo, and room number via LINE ID: {lineId}",
             "Staff will verify details and hand over the room keys",
             "Please carry your keycard to unlock the door",
             "Wi-Fi: Please select User according to your floor"
@@ -721,7 +721,7 @@ export const translations: Record<Language, Translations> = {
         checkOutSteps: [
             "Turn off AC, lights, and close the door (Do not lock the door)",
             "Put the keys into the key return box and send a photo notification in LINE",
-            "Send your bank account details in LINE: 0990954541",
+            "Send your bank account details in LINE: {lineId}",
             "After housekeeper inspects the room with no damages found, your deposit will be refunded via bank transfer"
         ],
         bankAccountTitle: "Payment Bank Account (No Cash)",
@@ -731,7 +731,7 @@ export const translations: Record<Language, Translations> = {
         wifiTitle: "Wi-Fi Password",
         wifiPass: "123456789",
         lineModalTitle: "Contact via Line Official",
-        lineModalDesc: "Scan to chat or add ID: 0990954541",
+        lineModalDesc: "Scan to chat or add ID: {lineId}",
         copyIdBtn: "Copy Line ID",
         copiedAlert: "Line ID Copied Successfully!",
         facilitiesTitle: "Building Facilities",
@@ -880,7 +880,7 @@ export const translations: Record<Language, Translations> = {
         bankStepsTitle: "Next Steps After Transfer:",
         bankStep1: "Take screenshot / save transfer slip",
         bankStep2: "Take photo of ID card or passport & mention room number",
-        bankStep3: "Send payment confirmation via LINE ID: 0990954541",
+        bankStep3: "Send payment confirmation via LINE ID: {lineId}",
     },
     cn: {
         brand: "@samutsakorn suansom",
@@ -1031,10 +1031,10 @@ export const translations: Record<Language, Translations> = {
         rulesNotice: "初犯：口头警告 | 再犯：每次罚款 2,000 泰铢",
         checkInTitle: "日租入住流程 (Daily Check-in)",
         checkInSteps: [
-            "请添加 LINE ID: 0990954541",
+            "请添加 LINE ID: {lineId}",
             "转账至盘谷银行账号 707-2-49085-6 户名: Onanong Techakasemsook (不接受现金)",
             "房费 + 押金每间 500 泰铢",
-            "付款后将凭证、身份证件照片及房间号发送至 LINE ID: 0990954541",
+            "付款后将凭证、身份证件照片及房间号发送至 LINE ID: {lineId}",
             "工作人员核对无误后发放房间钥匙",
             "请随身携带感应卡开门",
             "Wi-Fi: 请根据所在楼层选择对应用户名"
@@ -1043,7 +1043,7 @@ export const translations: Record<Language, Translations> = {
         checkOutSteps: [
             "关闭空调、电灯并关上房门 (无需锁门)",
             "将钥匙放入钥匙回收箱，拍照并在 LINE 通知",
-            "在 LINE (0990954541) 发送您的收款银行账号",
+            "在 LINE ({lineId}) 发送您的收款银行账号",
             "查房确认无物品损坏后，住宿方将转账退还押金"
         ],
         bankAccountTitle: "付款银行账号 (不接受现金)",
@@ -1053,7 +1053,7 @@ export const translations: Record<Language, Translations> = {
         wifiTitle: "Wi-Fi 密码",
         wifiPass: "123456789",
         lineModalTitle: "通过 Line 官方联系",
-        lineModalDesc: "扫描二维码或添加账号: 0990954541",
+        lineModalDesc: "扫描二维码或添加账号: {lineId}",
         copyIdBtn: "复制 Line ID",
         copiedAlert: "Line ID 复制成功！",
         facilitiesTitle: "公共设施与服务",
@@ -1202,7 +1202,7 @@ export const translations: Record<Language, Translations> = {
         bankStepsTitle: "转账后步骤:",
         bankStep1: "截图/保存转账凭证",
         bankStep2: "拍摄身份证/护照照片并说明房号",
-        bankStep3: "通过 LINE ID: 0990954541 发送确认凭证",
+        bankStep3: "通过 LINE ID: {lineId} 发送确认凭证",
     },
     mm: {
         brand: "@samutsakorn suansom",
@@ -1353,10 +1353,10 @@ export const translations: Record<Language, Translations> = {
         rulesNotice: "ပထမအကြိမ်- နှုတ်ဖြင့် သတိပေးမည် | ဒုတိယအကြိမ်မှစ၍: တစ်ကြိမ်လျှင် ဒဏ်ငွေ ၂,၀၀၀ ဘတ် ပေးဆောင်ရမည်",
         checkInTitle: "နေ့စဉ် Check-in ပြုလုပ်ရန် အဆင့်များ",
         checkInSteps: [
-            "LINE ID: 0990954541 ကို Add ပါ",
+            "LINE ID: {lineId} ကို Add ပါ",
             "Kasikornbank အကောင့် 707-2-49085-6 အမည် Onanong Techakasemsook သို့ ငွေလွှဲပါ (လက်ငင်းငွေ မလက်ခံပါ)",
             "အခန်းခ + စပေါ်ငွေ တစ်ခန်းလျှင် ၅၀၀ ဘတ်",
-            "ငွေလွှဲပြီးပါက ပြေစာ၊ မှတ်ပုံတင်ဓာတ်ပုံနှင့် အခန်းနံပါတ်ကို LINE ID: 0990954541 သို့ ပို့ပါ",
+            "ငွေလွှဲပြီးပါက ပြေစာ၊ မှတ်ပုံတင်ဓာတ်ပုံနှင့် အခန်းနံပါတ်ကို LINE ID: {lineId} သို့ ပို့ပါ",
             "ဝန်ထမ်းမှ စစ်ဆေးပြီးပါက အခန်းသော့ ထုတ်ယူပါ",
             "တံခါးဖွင့်ရန် ကီးကဒ်ကို ယူဆောင်ထားပါ",
             "Wi-Fi: သင်တည်းခိုသည့် အထပ်အလိုက် User ကိုရွေးချယ်ပါ"
@@ -1365,7 +1365,7 @@ export const translations: Record<Language, Translations> = {
         checkOutSteps: [
             "အဲကွန်း၊ မီးပိတ်ပြီး တံခါးပိတ်ပါ (တံခါးသော့ခတ်ရန် မလိုပါ)",
             "သော့ကို သော့ပြန်အပ်သည့် ဘူးထဲသို့ ထည့်ပြီး LINE သို့ ဓာတ်ပုံရိုက်ပို့ပါ",
-            "စပေါ်ငွေ ပြန်လည်ရယူရန် ဘဏ်အကောင့်နံပါတ်ကို LINE: 0990954541 သို့ ပို့ပေးပါ",
+            "စပေါ်ငွေ ပြန်လည်ရယူရန် ဘဏ်အကောင့်နံပါတ်ကို LINE: {lineId} သို့ ပို့ပေးပါ",
             "အခန်းစစ်ဆေးပြီး ပျက်စီးဆုံးရှုံးမှုမရှိပါက စပေါ်ငွေအား ဘဏ်မှတစ်ဆင့် ပြန်လည်လွှဲပေးပါမည်"
         ],
         bankAccountTitle: "ငွေပေးချေရန် ဘဏ်အကောင့် (လက်ငင်းငွေ မလက်ခံပါ)",
@@ -1375,7 +1375,7 @@ export const translations: Record<Language, Translations> = {
         wifiTitle: "Wi-Fi Password",
         wifiPass: "123456789",
         lineModalTitle: "Line Official မှတဆင့် ဆက်သွယ်ပါ",
-        lineModalDesc: "ဆက်သွယ်ရန် စကန်ဖတ်ပါ သို့မဟုတ် ID: 0990954541 ကို ထည့်ပါ",
+        lineModalDesc: "ဆက်သွယ်ရန် စကန်ဖတ်ပါ သို့မဟုတ် ID: {lineId} ကို ထည့်ပါ",
         copyIdBtn: "Line ID ကူးယူပါ",
         copiedAlert: "Line ID ကို အောင်မြင်စွာ ကူးယူပြီးပါပြီ။",
         facilitiesTitle: "အဆောက်အဦဆိုင်ရာ အဆင်ပြေမှုများ",
@@ -1524,7 +1524,7 @@ export const translations: Record<Language, Translations> = {
         bankStepsTitle: "ငွေလွှဲပြီးနောက် လုပ်ဆောင်ရန်အဆင့်များ:",
         bankStep1: "ငွေလွှဲစလစ်ကို ဓာတ်ပုံရိုက်ပါ/သိမ်းဆည်းပါ",
         bankStep2: "မှတ်ပုံတင် (သို့) နိုင်ငံကူးလက်မှတ် ဓာတ်ပုံရိုက်ပြီး အခန်းနံပါတ်ကို ပြောပါ",
-        bankStep3: "LINE ID: 0990954541 သို့ အတည်ပြုစလစ် ပေးပို့ပါ",
+        bankStep3: "LINE ID: {lineId} သို့ အတည်ပြုစလစ် ပေးပို့ပါ",
     },
     jp: {
         brand: "@samutsakorn suansom",
@@ -1643,10 +1643,10 @@ export const translations: Record<Language, Translations> = {
         rulesNotice: "初回違反：口頭注意 | 2回目以降：1回につき罰金 2,000 バーツ",
         checkInTitle: "デイリーチェックイン手順",
         checkInSteps: [
-            "LINE ID: 0990954541 を追加してください",
+            "LINE ID: {lineId} を追加してください",
             "バンコク銀行 口座番号 707-2-49085-6 (名義: Onanong Techakasemsook) へお振込みください (現金不可)",
             "宿泊費 + 保証金 1室あたり 500 バーツ",
-            "お支払い後、振り込み明細・身分証明書・部屋番号を LINE ID: 0990954541 へ送信してください",
+            "お支払い後、振り込み明細・身分証明書・部屋番号を LINE ID: {lineId} へ送信してください",
             "スタッフが確認後、お部屋の鍵をお渡しします",
             "ドアの施錠・解錠にはキーカードを常時お持ちください",
             "Wi-Fi: ご宿泊階のユーザーを選択してください"
@@ -1655,7 +1655,7 @@ export const translations: Record<Language, Translations> = {
         checkOutSteps: [
             "エアコンと照明を消し、ドアを閉めてください (鍵はかけなくて結構です)",
             "鍵を返却ボックスに入れ、LINEで写真を送信してください",
-            "LINE (0990954541) に返金先銀行口座をお知らせください",
+            "LINE ({lineId}) に返金先銀行口座をお知らせください",
             "清掃員による部屋の確認後、損害がない場合は12:00 (正午) までに保証金を口座振込にて返金いたします"
         ],
         bankAccountTitle: "お支払い用銀行口座 (現金不可)",
@@ -1665,7 +1665,7 @@ export const translations: Record<Language, Translations> = {
         wifiTitle: "Wi-Fi パスワード",
         wifiPass: "123456789",
         lineModalTitle: "Line Official からのお問い合わせ",
-        lineModalDesc: "QRコードをスキャンするか ID: 0990954541 を追加してください",
+        lineModalDesc: "QRコードをスキャンするか ID: {lineId} を追加してください",
         copyIdBtn: "Line ID をコピー",
         copiedAlert: "Line ID をコピーしました！",
         facilitiesTitle: "館内共用設備",
@@ -1828,10 +1828,10 @@ export const translations: Record<Language, Translations> = {
         rulesNotice: "1-е нарушение: устное предупреждение | 2-е нарушение: штраф 2,000 бат",
         checkInTitle: "Заселение (Daily Check-in)",
         checkInSteps: [
-            "Добавьте LINE ID: 0990954541",
+            "Добавьте LINE ID: {lineId}",
             "Переведите оплату на счет Kasikornbank: 707-2-49085-6 (На имя: Onanong Techakasemsook) (Наличные не принимаются)",
             "Оплата номера + Залог 500 бат за номер",
-            "Отправьте квитанцию, фото паспорта и номер комнаты в LINE ID: 0990954541",
+            "Отправьте квитанцию, фото паспорта и номер комнаты в LINE ID: {lineId}",
             "Персонал проверит данные и передаст вам ключи",
             "Носите ключ-карту с собой для доступа в здание",
             "Wi-Fi: выберите сеть вашего этажа"
@@ -1840,7 +1840,7 @@ export const translations: Record<Language, Translations> = {
         checkOutSteps: [
             "Выключите кондиционер, свет и закройте дверь (закрывать на ключ не нужно)",
             "Опустите ключи в ящик возврата и отправьте фото в LINE",
-            "Отправьте реквизиты вашего банка в LINE (0990954541)",
+            "Отправьте реквизиты вашего банка в LINE ({lineId})",
             "После проверки номера при отсутствии повреждений залог будет возвращен переводом до 12:00"
         ],
         bankAccountTitle: "Банковский счет для оплаты (Без наличных)",
@@ -1850,7 +1850,7 @@ export const translations: Record<Language, Translations> = {
         wifiTitle: "Пароль Wi-Fi",
         wifiPass: "123456789",
         lineModalTitle: "Связаться через Line Official",
-        lineModalDesc: "Отсканируйте QR-код или добавьте ID: 0990954541",
+        lineModalDesc: "Отсканируйте QR-код или добавьте ID: {lineId}",
         copyIdBtn: "Скопировать Line ID",
         copiedAlert: "Line ID успешно скопирован!",
         facilitiesTitle: "Удобства в здании",

@@ -746,6 +746,7 @@ export const RoomTypes: React.FC<RoomTypesProps> = ({
  onClose={() => setIsPromptPayModalOpen(false)}
  t={t}
  language={language}
+ lineId={siteData.lineId || '0945095963'}
  />
 
  {copiedToast && (

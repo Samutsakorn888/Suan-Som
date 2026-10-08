@@ -60,7 +60,7 @@ export const getDefaultSiteData = (): CustomSiteData => {
  const th = translations.th;
  return {
  phoneVal: th.phoneVal,
- lineId: '0990954541',
+ lineId: '0945095963',
  facebookUrl: 'https://www.facebook.com/profile.php?id=61553464657033',
  bankAccountVal: th.bankAccountVal,
  bankNameVal: th.bankNameVal,

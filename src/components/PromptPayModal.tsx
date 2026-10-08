@@ -6,9 +6,10 @@ interface PromptPayModalProps {
  onClose: () => void;
  t: Translations;
  language?: Language;
+ lineId: string;
 }
 
-export const PromptPayModal: React.FC<PromptPayModalProps> = ({ isOpen, onClose, t }) => {
+export const PromptPayModal: React.FC<PromptPayModalProps> = ({ isOpen, onClose, t, lineId }) => {
  const [copied, setCopied] = useState(false);
 
  if (!isOpen) return null;
@@ -93,7 +94,7 @@ export const PromptPayModal: React.FC<PromptPayModalProps> = ({ isOpen, onClose,
  <ol className="steps-ol">
  <li>{t.bankStep1 || 'ถ่ายรูป/เซฟสลิปโอนเงิน'}</li>
  <li>{t.bankStep2 || 'ถ่ายภาพบัตรประชาชนและแจ้งเลขห้องพัก'}</li>
- <li>{t.bankStep3 || 'ส่งสลิปแจ้งยืนยันทาง LINE ID: 0945095963'}</li>
+ <li>{t.bankStep3?.replace('{lineId}', lineId) || `ส่งสลิปแจ้งยืนยันทาง LINE ID: ${lineId}`}</li>
  </ol>
  </div>
  </div>

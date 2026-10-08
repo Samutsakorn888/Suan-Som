@@ -51,19 +51,34 @@ function App() {
   const bankAccount = siteData.bankAccountVal || '707-2-49085-6';
   const bankName = siteData.bankNameVal || baseT.bankName;
   const bankAccountName = siteData.bankAccountName || baseT.bankAccNameVal;
+  const currentLineId = siteData.lineId || '0945095963';
+
+  const replaceLineId = (val: any): any => {
+    if (typeof val === 'string') return val.replace(/\{lineId\}/g, currentLineId);
+    if (Array.isArray(val)) return val.map(replaceLineId);
+    if (typeof val === 'object' && val !== null) {
+      const newVal: any = {};
+      for (const k in val) newVal[k] = replaceLineId(val[k]);
+      return newVal;
+    }
+    return val;
+  };
+
+  const processedBaseT = replaceLineId(baseT);
+
   const t = {
-    ...baseT,
+    ...processedBaseT,
     bankName: bankName,
     bankAccNameVal: bankAccountName,
     bankAccountVal: bankAccount,
-    checkInSteps: (baseT.checkInSteps || []).map(step => 
+    checkInSteps: (processedBaseT.checkInSteps || []).map((step: string) => 
       step.includes('เลขที่บัญชี') 
         ? `สแกนจ่ายเงินผ่านเลขที่บัญชี ${bankAccount} ${bankName} ${bankAccountName} (ไม่รับเงินสด)`
         : step
     ),
-    checkOutSteps: (baseT.checkOutSteps || []).map(step => 
+    checkOutSteps: (processedBaseT.checkOutSteps || []).map((step: string) => 
       step.includes('เลขบัญชี') 
-        ? `แจ้งเลขบัญชีเพื่อรับเงินประกันคืนใน LINE ${siteData.lineId || '0990954541'}`
+        ? `แจ้งเลขบัญชีเพื่อรับเงินประกันคืนใน LINE ${currentLineId}`
         : step
     )
   } as typeof baseT & { bankAccountVal: string };
@@ -405,6 +420,7 @@ function App() {
         isOpen={isLineModalOpen}
         onClose={handleCloseLineModal}
         t={t}
+        lineId={siteData.lineId || '0945095963'}
       />
 
       {/* Quick Edit Popup Modal for Admin */}

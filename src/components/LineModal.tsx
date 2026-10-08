@@ -6,11 +6,11 @@ interface LineModalProps {
  isOpen: boolean;
  onClose: () => void;
  t: Translations;
+ lineId: string;
 }
 
-export const LineModal: React.FC<LineModalProps> = ({ isOpen, onClose, t }) => {
+export const LineModal: React.FC<LineModalProps> = ({ isOpen, onClose, t, lineId }) => {
  const [showToast, setShowToast] = useState(false);
- const lineId = '0945095963';
 
  if (!isOpen) return null;
 
@@ -46,7 +46,7 @@ export const LineModal: React.FC<LineModalProps> = ({ isOpen, onClose, t }) => {
  </div>
  
  <p className="modal-text">
- {t.lineModalDesc}
+ {t.lineModalDesc?.replace('{lineId}', lineId)}
  </p>
 
 
