@@ -396,25 +396,25 @@ export const translations: Record<Language, Translations> = {
         nearbyTitle: "สถานที่สำคัญใกล้เคียง",
         nearbySubtitle: "เชื่อมต่อทุกการเดินทาง แหล่งช้อปปิ้ง นิคมอุตสาหกรรม",
         nearbyList: [
-            { icon: "", title: "ตลาดนัดสวนส้ม", distance: "2นาที", desc: "แหล่งรวมอาหารและของกินมากมาย" },
+            { icon: "", title: "นิคมอุตสาหกรรมสมุทรสาคร", distance: "5นาที", desc: "มีโรงงานมากกว่า100แห่ง" },
             { icon: "", title: "ตลาดนัดสุขมานิคม15", distance: "3นาที", desc: "ตลาดนัดชุมชน" },
-            { icon: "️", title: "ซีเจ เซเว่น", distance: "2นาที", desc: "ร้านสะดวกซื้อ" },
-            { icon: "", title: "ร้อยไร่คาเฟ่", distance: "10นาที", desc: "ที่พักผ่อนหย่อนใจ" }
-        ,
-            { icon: "📍", title: "สถานที่เพิ่มเติม 1 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 1" },
-            { icon: "📍", title: "สถานที่เพิ่มเติม 2 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 2" },
-            { icon: "📍", title: "สถานที่เพิ่มเติม 3 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 3" },
-            { icon: "📍", title: "สถานที่เพิ่มเติม 4 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 4" },
-            { icon: "📍", title: "สถานที่เพิ่มเติม 5 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 5" }
+            { icon: "️", title: "ตลาดนัดสวนส้ม", distance: "3นาที", desc: "แหล่งรวมอาหารและของกินมากมาย" },
+            { icon: "", title: "ซีเจ เซเว่น", distance: "2นาที", desc: "ร้านสะดวกซื้อมากมาย" }
+            ,
+            { icon: "📍", title: "เซ็นทรัลมหาชัย", distance: "15นาที", desc: "ห้างสรรพสินค้าใหญ่" },
+            { icon: "📍", title: "สถานีรถไฟมหาชัย", distance: "20นาที", desc: "" },
+            { icon: "📍", title: "Big C มหาชัย", distance: "15", desc: "" },
+            { icon: "📍", title: "TESCO Lotus", distance: "15", desc: "" },
+            { icon: "📍", title: "โฮมโปรมหาชัย", distance: "15", desc: "" }
         ],
         securityTitle: "ระบบรักษาความปลอดภัย",
         securitySubtitle: "เพื่อความอุ่นใจในการพักอาศัย",
         securityList: [
-            { badge: "-", title: "ระบบรักษาความปลอดภัย 1 (รอกรอกข้อมูล)", desc: "คำอธิบาย 1" },
-            { badge: "-", title: "ระบบรักษาความปลอดภัย 2 (รอกรอกข้อมูล)", desc: "คำอธิบาย 2" },
-            { badge: "-", title: "ระบบรักษาความปลอดภัย 3 (รอกรอกข้อมูล)", desc: "คำอธิบาย 3" },
-            { badge: "-", title: "ระบบรักษาความปลอดภัย 4 (รอกรอกข้อมูล)", desc: "คำอธิบาย 4" },
-            { badge: "-", title: "ระบบรักษาความปลอดภัย 5 (รอกรอกข้อมูล)", desc: "คำอธิบาย 5" }
+            { badge: "-", title: "ตำรวจรักษาการ", desc: "ตลอด24ชม." },
+            { badge: "-", title: "ประตูระบบคีย์การ์ด", desc: "เข้า-ออกประตู ด้วยคีย์การ์ด" },
+            { badge: "-", title: "heat detector/smoke detector", desc: "ตรวจจับความร้อน/ควัน" },
+            { badge: "-", title: "ตู้ดับเพลิงทุกชั้น/เสาล่อฟ้า", desc: "เพื่อความปลอดภัยสูงสุด" },
+            { badge: "-", title: "กล้องวงจรปิดCCTV", desc: "ครบทุกมุม 24ชม." }
         ],
         faqTitle: "คำถามที่พบบ่อย (FAQ)",
         faqSubtitle: "ไขข้อข้องใจเกี่ยวกับการเข้าพักและการเช่าห้องพักรายวัน / รายเดือน",
@@ -766,7 +766,7 @@ export const translations: Record<Language, Translations> = {
             { icon: "", title: "SuanSom Hospital / Samutsakorn Hosp.", distance: "5 mins (1.5 km)", desc: "Leading healthcare facilities available 24 hours" },
             { icon: "️", title: "Central SuanSom", distance: "8 mins (3.2 km)", desc: "Major shopping center, restaurants, fashion, and cinema" },
             { icon: "", title: "SuanSom Railway & Fresh Market", distance: "10 mins (2.5 km)", desc: "Fresh seafood market and train transport to Bangkok" }
-        ,
+            ,
             { icon: "📍", title: "สถานที่เพิ่มเติม 1 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 1" },
             { icon: "📍", title: "สถานที่เพิ่มเติม 2 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 2" },
             { icon: "📍", title: "สถานที่เพิ่มเติม 3 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 3" },
@@ -1103,7 +1103,7 @@ export const translations: Record<Language, Translations> = {
             { icon: "", title: "萱桑医院 / 龙仔厝医院", distance: "5分钟 (1.5公里)", desc: "24小时全天候顶尖医疗保障" },
             { icon: "️", title: "Central 萱桑 (Central SuanSom)", distance: "8分钟 (3.2公里)", desc: "大型综合购物中心、餐饮、时尚与电影院" },
             { icon: "", title: "萱桑火车站 & 鲜活海鲜市场", distance: "10分钟 (2.5公里)", desc: "新鲜海鲜市场及前往曼谷的火车站点" }
-        ,
+            ,
             { icon: "📍", title: "สถานที่เพิ่มเติม 1 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 1" },
             { icon: "📍", title: "สถานที่เพิ่มเติม 2 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 2" },
             { icon: "📍", title: "สถานที่เพิ่มเติม 3 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 3" },
@@ -1440,7 +1440,7 @@ export const translations: Record<Language, Translations> = {
             { icon: "", title: "ဆွန်ဆုမ် ဆေးရုံ / စမုတ်စာခွန် ဆေးရုံ", distance: "၅ မိနစ် (၁.၅ ကီလိုမီတာ)", desc: "၂၄ နာရီ အဆင့်မြင့် ကျန်းမာရေးစောင့်ရှောက်မှု" },
             { icon: "️", title: "Central ဆွန်ဆုမ်", distance: "၈ မိနစ် (၃.၂ ကီလိုမီတာ)", desc: "အဆင့်မြင့် စျေးဝယ်စင်တာ၊ စားသောက်ဆိုင်များနှင့် ရုပ်ရှင်ရုံ" },
             { icon: "", title: "ဆွန်ဆုမ် ရထားဘူတာနှင့် ပင်လယ်စာစျေး", distance: "၁၀ မိနစ် (၂.၅ ကီလိုမီတာ)", desc: "လတ်ဆတ်သော ပင်လယ်စာနှင့် ဘန်ကောက်သို့ သွားရောက်နိုင်သည့် ရထားဘူတာ" }
-        ,
+            ,
             { icon: "📍", title: "สถานที่เพิ่มเติม 1 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 1" },
             { icon: "📍", title: "สถานที่เพิ่มเติม 2 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 2" },
             { icon: "📍", title: "สถานที่เพิ่มเติม 3 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 3" },
@@ -1745,7 +1745,7 @@ export const translations: Record<Language, Translations> = {
             { icon: "", title: "スアンソム病院 / サムットサコーン病院", distance: "車で5分 (1.5 km)", desc: "24時間対応の高度医療機関" },
             { icon: "️", title: "セントラル・スアンソム", distance: "車で8分 (3.2 km)", desc: "大型ショッピングモール、レストラン、映画館" },
             { icon: "", title: "スアンソム駅 ＆ 生鮮市場", distance: "車で10分 (2.5 km)", desc: "新鮮な海鮮市場およびバンコク行き列車発着駅" }
-        ,
+            ,
             { icon: "📍", title: "สถานที่เพิ่มเติม 1 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 1" },
             { icon: "📍", title: "สถานที่เพิ่มเติม 2 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 2" },
             { icon: "📍", title: "สถานที่เพิ่มเติม 3 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 3" },
@@ -1945,7 +1945,7 @@ export const translations: Record<Language, Translations> = {
             { icon: "", title: "Больница Суан Сом / Больница Самутсакхон", distance: "5 мин (1.5 км)", desc: "Ведущие медицинские центры 24/7" },
             { icon: "️", title: "Central SuanSom", distance: "8 мин (3.2 км)", desc: "Крупный ТРЦ, рестораны, кинотеатр" },
             { icon: "", title: "Ж/Д станция Суан Сом и Рынок", distance: "10 мин (2.5 км)", desc: "Рынок свежих морепродуктов и поезда в Бангкок" }
-        ,
+            ,
             { icon: "📍", title: "สถานที่เพิ่มเติม 1 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 1" },
             { icon: "📍", title: "สถานที่เพิ่มเติม 2 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 2" },
             { icon: "📍", title: "สถานที่เพิ่มเติม 3 (รอกรอกข้อมูล)", distance: "-", desc: "คำอธิบาย 3" },
