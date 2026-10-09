@@ -36,7 +36,16 @@ export const Footer: React.FC<FooterProps> = ({
                     )}
                     <div className="footer-brand-logo-container">
                         <img src="/images/logo.png" alt="Logo" className="footer-logo-img" />
-                        <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 'bold' }}>{t.brand}</h3>
+                        <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 'bold' }}>
+                            {t.brand.startsWith('@') ? (
+                                <>
+                                    <span style={{ fontSize: '1.5em', fontWeight: '900', marginRight: '2px' }}>@</span>
+                                    {t.brand.slice(1)}
+                                </>
+                            ) : (
+                                t.brand
+                            )}
+                        </h3>
                     </div>
                     <div className="footer-contact-details">
                         <div className="footer-contact-item">

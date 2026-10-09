@@ -66,7 +66,16 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* 1. Left: Brand Logo */}
         <a href="#" className="navbar-logo" onClick={(e) => { e.preventDefault(); handleNavClick('home'); }}>
           <img src="/images/logo.png" alt="Logo" className="navbar-logo-img" />
-          <span>{t.brand}</span>
+          <span>
+            {t.brand.startsWith('@') ? (
+              <>
+                <span style={{ fontSize: '1.5em', fontWeight: '900', marginRight: '2px' }}>@</span>
+                {t.brand.slice(1)}
+              </>
+            ) : (
+              t.brand
+            )}
+          </span>
         </a>
 
         {/* 2. Center: Navigation Menu Links */}
